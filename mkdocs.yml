@@ -1,0 +1,12 @@
+site_name: AsmetaL Syntax - Quick Guide
+site_description: AsmetaL (AsmM) concrete syntax quick guide
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Notational Conventions: 01-introduction.md
+  - Structure of an ASM: 02-structure-of-an-asm.md
+  - Structure of an ASM module: 03-structure-of-a-module.md
+  - Syntactic Rules: 04-syntactic-rules.md
+  - Reference: reference.md
+use_directory_urls: true
