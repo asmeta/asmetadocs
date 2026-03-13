@@ -31,9 +31,15 @@ turbo rules.
   - [TurboReturnRule](#TurboReturnR)
   - [TermAsRule](#TermAsR)
 
+#### SkipRule
+**`skip`** 
+#### UpdateRule
+**`l:=t`**    where:  - t is a generic term.      - l can be either a location term f(t1,...,tn) or a location variable.      Note that all the rules, which return a value t, contain an update rule as in result:=t, where result is a reserved 0-ary function  acting as placeholder in which to store the intended return value. 
+#### BlockRule
+**`par`** R1 R2 ... Rn **`endpar`**  where R1,R2,...,Rn are transition rules. 
 
 
-| **Model****element** | **Concrete syntax** |
+| **Model element** | **Concrete syntax** |
 | --- | --- |
 | **SkipRule** | **`skip`** |
 | **UpdateRule** | **`l:=t`**    where:  - t is a generic term.      - l can be either a location term f(t1,...,tn) or a location variable.      Note that all the rules, which return a value t, contain an update rule as in result:=t, where result is a reserved 0-ary function  acting as placeholder in which to store the intended return value. |
