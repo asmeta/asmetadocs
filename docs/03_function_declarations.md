@@ -21,7 +21,14 @@ to C (the codomain). 0-ary functions  (nullary function) (state varibales) have 
 | **DynamicFunction** | [ **dynamic** ] ( **monitored** \| **controlled**\| **shared** \| **out**\| **local** ) F **:** [ D **->** ] C  A dynamic function is declared specifying its  kind (*monitored*, *controlled*, *shared*, or *out*);  optionally, the keyword **dynamic** can be also added as prefix. *Local*  dynamic functions can be declared only in the scope of a turbo transition  rule with local state (see section [Transition rules](#rules)). |
 | **DerivedFunction** | **derived** F **:** [ D **->** ] C |
 
-> **_NOTE:_**  *derived* functions can contain in their definition both static and dynamic (and derived) functions (actually they must contains at least a dynamic function), while *static* functions cannot contain in their definition only static functions.
+> **_NOTE:_**  *derived* functions can contain in their definition both static and dynamic (and derived) functions (but they must contains at least a dynamic function), while *static* functions cannot contain in their definition dynamic or derived  functions.
 
+### Examples
 
+A static function that given two integers return the max of them
+
+``` asmetal
+static max: Prod(Integer,Integer) -> Integer
+```
+    
 

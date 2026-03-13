@@ -12,3 +12,15 @@ nav:
   
 
 use_directory_urls: true
+
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences:
+      extend_pygments_lang:
+        - name: asmetal
+          lang: php
+  - pymdownx.inlinehilite
