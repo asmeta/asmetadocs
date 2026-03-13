@@ -9,7 +9,7 @@ nav:
   - Structure of an ASM module: 03-structure-of-a-module.md
   - Syntactic Rules: 04-syntactic-rules.md
   - Reference: reference.md
-  - doc: 1_structure_asm.md
+  - Structure of an ASM: 1_structure_asm.md
   - doc: 2_domain_declaration.md
   - doc: 3_function_declarations.md
   - doc: 4_terms.md
