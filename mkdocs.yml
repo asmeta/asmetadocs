@@ -21,7 +21,4 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences:
-      extend_pygments_lang:
-          name: asmetal
-          lang: php
+  - pymdownx.superfences
