@@ -3,7 +3,10 @@
 
 An ASM model is structured into four sections: an header, an initialization, a body and a main rule. The schema below shows the concrete notation for each
 section.
-| **ASM**  | [**`asyncr`**] **`asm`** *name* |
+
+|||
+| --- | --- |
+| **Asm declaration**  | [**`asyncr`**] **`asm`** *name* |
 | |where:</br> - *name* is the name of the ASM. It must be equal to the name of the ASM file (as name.asm) The keyword **asyncr** specifies if the ASM is an *asynchronous* multi-agent or not. If omitted, the ASM is considered a *synchronous* multi-agent ASM. |
 | **Header** | [ **`import`** *m1* [**(** id11,...,id1h1 **)**] **...**</br>  **`import`** mk [**(** idk1,...,idkhk **)**]] </br> [ **`export`** id1,...,ide ] or [**`export`** \*] |
 | |where:</br> -*m1,...,mk* are the names of the imported modules</br> - idi1,...,idihi are names for domains, functions and rules which are imported from module mi (if they are omitted all the content of the export clause of mi is imported);</br>- id1,...,ide are names for domains, functions and rules which can be exported from the ASM. **export*** denotes that all functions and rules of the ASM can be exported; |
