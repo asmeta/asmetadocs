@@ -35,11 +35,11 @@ Note that, to write an ASM
 ## Index
 
 1. [Notational conventions](#notConv)
-2. [Structure of an ASM](1_structure_asm.md)
-5. [Domain declarations](2_domain_declaration.md)
-6. [Function declarations](3_function_declarations.md)
-7. [Terms](4_terms.md)
-8. [Transition rules](5_transition_rules.md) 
+2. [Structure of an ASM](01-structure-of-an-asm.md)
+5. [Domain declarations](02_domain_declaration.md)
+6. [Function declarations](03_function_declarations.md)
+7. [Terms](04_terms.md)
+8. [Transition rules](05_transition_rules.md) 
 4. [Syntactic rules on ID names](#id)
 9. [Comments](#comments)
 
