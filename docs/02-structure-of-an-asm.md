@@ -15,11 +15,14 @@ section.
 
   
 
+```asmetal
 |  | [**asyncr**] **asm** name             where:             - name is the           name of the ASM. It must be equal to the name of the ASM file (as name.asm)            The keyword **asyncr** specifies if the           ASM is an *asynchronous* multi-agent or not. If omitted, the           ASM is considered a *synchronous* multi-agent ASM. |
 | --- | --- |
 | **Header** | [ **import** m1 [**(** id11,...,id1h1 **)**]            ** ...**             **import**** **mk [**(** idk1,...,idkhk** )**]**             **]            [ **export** id1,...,ide ]  or   [           **export * **]            **signature**** :                **[           dom_decl1                ...                dom_decln                                       ]                [           fun_decl1                ...                fun_declm                                       ]             where:            - m1,...,mk are the names of the imported modules            - idi1,...,idihi are names for domains, functions           and rules which are imported from module mi (if they are omitted all the content           of the export clause of mi is imported);            - id1,...,ide are names for domains, functions and rules which can be exported from           the ASM.** export           *** denotes that all functions and rules of the ASM can be           exported;             - dom_decl1,...,dom_decln are declarations of domains used in the ASM (see section Domain declarations);            - fun_decl1,...,fun_declm are declarations of functions used in the ASM (see section Function declarations). |
 | **Body** | **definitions :**            **   **[ **domain** D1 **=** Dterm1                                   ...            **                   domain** Ds **=** Dterms                                    ]            **             **[**    function** F1 [**(** p11 **in** d11,...,p1k1 **in** d1k1 **)**]**=** Fterm1                      ...                     **function** Ff [**(** pf1 **in** df1,...,pfkf **in** dfkf **)**]**=** Ftermf               ]               [   [**macro**]**           rule **R1 [**(** x11 **in** b11,...,x1k1 **in** b1k1 **)**] = rule1                     ...                    [**macro**] **rule           **Rr [**(** xr1 **in** br1,...,xrkr **in** brkr **)**] =           ruler             **        turbo rule **TR1 [**(** x11 **in** b11,...,x1k1 **in** b1k1 **)**][** in** b1] = rule1                     ...                    **turbo** **rule           **TRr [**(** xr1 **in** br1,...,xrkr **in** brkr **)**] [**           in**           bx]=           ruler               ]              [   **axiom** I1**over** id11,...,id1s1 : term1**                     ...                    axiom           Ivover**           idv1,...,idvsv : termv                ]             where:            - D1,...,Dd are names of static concrete domains           declared in the signature (see Header);             - F1,...,Ff are names of static or derived           functions declared in the signature (see Header);            - Dterm1,...,Dtermd and Fterm1,...,Ftermf are terms (see section Terms);             - pij are variables which specify the           formal parameters of the function Fi, and dij are the domains where pij take their value;            - R1,...,Rr TR1,...,TRr are names for transition rules (see section Transition rules);            -            I1,...,Iv are names for axioms            - xij are variables which specify the           formal parameters of the rule Ri, and bij are the domains where pij take their value;            - bi are domains where return values of turbo rules           (with return value) range;             - rule1,...,ruler are transition rules (see section Transition rules);            - idij are names of domains, functions*           and rules constrained by the axioms;            - termi is a term (see section Terms) representing the boolean-valued expression of the constraint.                        *When functions are overloaded it is necessary to indicate their domain,           as in f(d)with f the function           name and d the name of the function domain. |
 | **Main**** rule** | [** ****main rule  **R**  = **rule ]       where:    - R is the name of the main rule;    - rule is a transition rule (see section Transition rules);    If the ASM has no main rule, as default, the ASM is started executing in   parallel the agent programs as specified by the agent initialization clauses   (see initializations) in the initial state. |
+```
+
 
     
        
@@ -35,6 +38,7 @@ section.
                ...
 
           **         
+```asmetal
           domain** D1n1 **=** Dterm1n1
           
 
@@ -139,8 +143,7 @@ section.
                   **]**
 
           **]
-
-        
+```
 
 where:
 
@@ -167,9 +170,11 @@ where:
           
 
           *Note that, rij is a macro-call
+```asmetal
           rule (see section [Transition rules](#rules)), i.e. the invocation of a named rule declared
           in the ASM or imported from an other module.
           If no agent initialization clause is specified, as default the ASM is
           assumed *single-agent* and the program and the identifier of
           the unique agent are respectively the ASM's *main rule* (see [Main rule](#Mainrule)) and the ASM's
           name.
+```

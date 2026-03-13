@@ -13,6 +13,8 @@ AsmM Concrete Syntax 2.0.0 - A Quick Guide
 
 ## A Quick Guide
 
+## A Quick Guide
+
   
 
 1st April 2020
@@ -37,22 +39,92 @@ The AsmetaL
     kinds of syntactic expressions which can be evaluated in a state of an ASM),
     and the *behavioral** language* or
     the *language of rules* (provides a notation to specify the transition
+```asmetal
     rule schemes of an ASM).
-
-  
+```
 
 This quick guide gives a
     description of each part by presenting the notation in an intuitive style
+```asmetal
     for better readability, instead of reporting the grammar productions. For
     a more formal definition see the [EBNF grammar](AsmetaL_EBNF.html).
-
-  
+```
 
 Note that, to write an ASM
     model of a system, the file containing the ASM spec must contain a single
+```asmetal
     ASM structure definition and take the ".asm"
     extension (e.g. MyAsmModel.asm).
+```
 
+## 5.
+```asmetal
+Domain declarations
+```
+
+## 5.
+```asmetal
+Domain declarations
+```
+
+The ASM domains (or
+universes) are classified in: *typedomains*
+and *concrete-domains*. 
+
+The *type-domains*
+represent all possible *super domains* (for practical reasons, the superuniverse |S| of an ASM state S is divided into smaller
+universes) and are further classified in: *basic type-domains*, domains
+```asmetal
+for primitive data values like booleans, reals, integers, naturals, strings, etc.; *structured
+```
+
+type-domains*, domains for building
+
+    data structures (like sets, sequences, bags, maps, tuples
+    etc.) over other domains; *abstract type-domain*s,
+```asmetal
+    dynamic user-named domains whose elements have no precise structure and are
+    imported as fresh elements from a possibly infinite reserve by means of extend
+    rules (see section [Transition rules](#rules)); and *enum**
+    domains*, finite user-named enumerations to introduce new concepts of
+    type (e.g. one may define the enumeration Color
+    = {RED, GREEN, BLUE} to introduce the new concept of "color").
+```
+
+*Concrete domains* are user-named sub-domains of
+type-domains. As for functions, a concrete domain can be static or dynamic. 
+
+The schema below shows the
+notation for declaring a domain. Domains declared as "anydomain"
+are generic domains representing any other type-domain. The standard library
+defines one "predefined" anydomain, named Any, which represents the most generic one. As basic
+type-domains only Complex, Real, Integer, Natural, String, Char, Boolean, Rule,
+and the singleton Undef={undef} are allowed and defined in the standard library as
+predefined basic type-domains. Moreover, two other special abstract domains are
+considered predefined: the Agent domain for agents, and the Reserve domain
+which works as "reserve" to increase the working space of an ASM. Note
+that, the Reserve domain is considered "abstract", and therefore
+"dynamic", since it is updated automatically upon execution of an
+extend rule (see section [Transition rules](#rules)) – it can not be updated directly by
+other transition rules –.
+
+```asmetal
+| **Model****   element** | **Concrete syntax** |
+| --- | --- |
+| **AnyDomain** | **anydomain** D       where D is the name   of the domain representing any other type-domain. A predefined generic domain   named Any is declared in the standard library and considered the most generic   one. |
+| **BasicTD** | **basic** **domain** D       Only **Complex**, **Real**, **Integer**,   **Natural**, **String**, **Char**, **Boolean**, **Rule**, and **Undef** are allowed (users can not define other   basic domains). They are declared in the standard library as   "predefined" basic type-domains. |
+| **AbstractTD** | **abstract** **domain** D        where D is the name   of the type-domain. |
+| **EnumTD** | **enum** **domain** D **= { **EL1|...|ELn** }**        where:    - D is the name of the enum type-domain;     - EL1,...,ELn** **are the elements of the   enumeration. |
+| **ProductDomain** | **Prod** **(** d1,d2,...,dn **)**              where d1,...,dn** **are the domains over which the cartesian           product is defined. |
+| **SequenceDomain** | **Seq** **(** d **)**              where d** **is the domain over which the sequence domain is defined. |
+| **PowersetDomain** | **Powerset** **(** d **)**             where d** **is the domain over which the power set is defined. |
+| **BagDomain** | **Bag** **(** d **)**             where d** **is the domain over which the bag domain is defined. |
+| **MapDomain** | **Map** **(** d1,d2 **)**             where d1,d2 are the domains over which the map domain is defined. |
+| **ConcreteDomain** | [** dynamic **] **domain** D **subsetof** td       where:    - D is the name of the concrete domain to declare;     - td is a type-domain which identifies the structure of the elements of the   declared concrete domain. The keyword **dynamic **denotes that the   declared domain is *dynamic*. If omitted, the domain is considered *static*. |
+```
+
+
+## 6. Function Declarations
 
 ## 6. Function Declarations
 
@@ -70,11 +142,14 @@ The schema below shows the
 concrete syntax for declaring a function F (the name) from D (the domain)
 to C (the codomain).
 
+```asmetal
 | **Model****   element** | **Concrete syntax** |
 | --- | --- |
 | **StaticFunction** | **static** F : [ D -> ] C |
 | **DynamicFunction****** | [ **dynamic** ] ( **monitored** | **controlled**   | **shared** | **out**   | **local** ) F **:** [ D **->** ] C       A dynamic function is declared specifying its   kind (*monitored*, *controlled*, *shared*, or *out*);   optionally, the keyword **dynamic **can be also added as prefix. *Local*   dynamic functions can be declared only in the scope of a turbo transition   rule with local state (see section Transition rules). |
 | **DerivedFunction****** | **derived** F **:** [ D **->** ] C |
+```
+
 
 ## 7. Terms
 
@@ -88,17 +163,21 @@ terms*, etc.
 
 ### Basic Terms
 
+```asmetal
 | **Model****   element** | **Concrete syntax** |
 | --- | --- |
 | **ConstantTerm** | **Complex number**, as in  x**+i**y, where x and y are real numbers and **i**** **is the imaginary   unit. A complex number must be written without spaces within, because it is   considered a unique token. E.g.: -2-**i**3       **Real terms **as floating point numbers. E.g: +3.4 , -3.4   , 3.4, 0.0   ,etc...       **Integer terms **as signed numbers. E.g.: 3, +3, -3, 0, etc...       **Natural numbers **as unsigned numbers plus the   suffix "n". E.g.: 3n, 0n, etc...       **Char terms** as char literals delimited by single   quotes. E.g.: 'a', '5',   etc...       **String terms** as a string of literals delimited   of double quotes: E.g.: "hello", "1256", etc...       **Boolean terms**: **true**,   **false        Undef term: undef**       **Enum**** term:** e  where e is an element of an enumeration   type-domain. |
 | **VariableTerm** | v        where v is a variable. The variable can   be a *location variable* (which is replaced by a *location term )*, or a *rule   variable *(which is replaced by a *rule term* ), or a  *logical   variable* (which is replaced by a term that is neither a location term   nor a rule term). |
 | **FunctionTerm** | [id **.** ]f [ **( **t1,...,tn** )** ]       where:    - f is the function   to apply and (t1,...,tn) is a tuple   term representing the actual parameters of the function f. If f is a 0-ary   function, there is no tuple term.    - id is the agent that applies the function f.    Within  the rules of the ASM, each agent can   identify itself by means of a special reserved 0-ary function  self:Agent, which is interpreted by each agent a as a. For a  function f:X->Y, for example, the expression f(self,x) or self.f(x) denotes the private version f(x) belonging   to agent self. When it is clear from the contex who is   denoted by self, notationally self is omitted. |
 | **LocationTerm** | A specialized function term where f is a dynamic   function fixed by the ASM signature. |
+```
+
 
  
 
 ### Extended Terms
 
+```asmetal
 | **Model****   element** | **Concrete syntax** |
 | --- | --- |
 | **TupleTerm** | **( **t1,...,tn** )**** **       where t1,...,tn are terms, that can have a distinct nature. The empty tuple is not allowed. |
@@ -118,6 +197,8 @@ terms*, etc.
 | **ForallTerm** | **( forall **v**1** **in** D1,...,vn **in **Dn**   **[** with **Gv1,...,vn ]**)**       where:    - v1,...,vn are variables.    - D1,...,Dn are terms representing the domains where v1,...,vn take their value.    - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn  is omitted it is assumed "**with   true**" as default condition. |
 | **DomainTerm** | D       where D is the name of a domain declared   in the ASM signature or directly the expression for a structured type-domain. |
 | **RuleAsTerm** | **** R[ **( **D1,...,Dn** ****)** ]** >>**             where R is the name of a defined transition           rule, and D1,...,Dn (if any) are the domains of the formal rule           parameters*.           It is a special term used to denote a transition rule where a term is           expected (e.g as actual parameter in a rule           application to represent a transition rule). Its           interpretation results,           therefore, in a transition rule.             *Similarly to functions, rules can           be overloaded. When rules are overloaded, it is necessary to indicate           the domains of the formal rule parameters. |
+```
+
 
 In addition to these terms, the AsmM
 concrete syntax admits special expressions to support the *infix notation*  for some well-known functions on basic domains (like *plus*,
@@ -128,6 +209,7 @@ together with their associativies and priorities. The
 operator priorities range from 0 to 9, where 9 indicates
 the strongest one and 0 the weakest one. 
 
+```asmetal
 | **Function****** | **Infix****   operator** | **Type****** | **Associativity****** | **Priority****** |
 | --- | --- | --- | --- | --- |
 | minus (unary)       plus (unary) | -       + | Complex → Complex     Real → Real     Integer → Integer | left | 9 |
@@ -151,6 +233,8 @@ the strongest one and 0 the weakest one.
 | or | or | Boolean × Boolean →   Boolean | left | 1 |
 | implies | implies | Boolean × Boolean →   Boolean | left | 0 |
 | iff | iff | Boolean × Boolean →   Boolean | left | 0 |
+```
+
 
 ## 8. Transition Rules
 
@@ -158,13 +242,17 @@ the strongest one and 0 the weakest one.
 
 In a given state, a
 transition rule of an ASM produces for each variable assignment an update set
+```asmetal
 for some dynamic functions of the signature. We classify transition rules in
+```
+
 two groups: *basic rules* and *turbo rules*. The former are
 simply rules, like the *skip rule* and the *update rule*, while
 the latter are rules, like the *sequence rule* and the *iterate rule*,
 introduced to support practical composition and structuring principles of the ASMs. Other rule schemes are derived from the basic and the
 turbo rules.
 
+```asmetal
 | **Model****   element** | **Concrete syntax ** |
 | --- | --- |
 | **SkipRule** | **skip** |
@@ -186,6 +274,8 @@ turbo rules.
 | **TryCatchRule** | **try** P **catch **l1,...,ln Q       where:     - P and Q are transition rules.     - l1,...,ln are either location terms or location   variables. |
 | **TurboReturnRule****** | l ** r**(**t1,...,tn**)**       where:    - l is either a location term or a location variable.     - r(t1,...,tn) is a TurboCall rule. |
 | **TermAsRule** | v       where v is either a rule variable or a   function term. This rule works as a form of wrapper to allow the use of   either a function term or a variable term where a rule is expected. |
+```
+
 
 ## 9.
 Comments
@@ -200,4 +290,3 @@ follows:
 
  /* text to be
 commented*/
-

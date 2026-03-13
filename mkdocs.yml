@@ -8,6 +8,5 @@ nav:
   - Structure of an ASM: 02-structure-of-an-asm.md
   - Structure of an ASM module: 03-structure-of-a-module.md
   - Syntactic Rules: 04-syntactic-rules.md
-  - Domain Declarations: 021_domain-declaration.md
   - Reference: reference.md
 use_directory_urls: true
