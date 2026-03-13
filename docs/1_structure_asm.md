@@ -1,12 +1,9 @@
 
-An ASM model is structured
-into four sections: an header, an initialization, a
-body and a main rule. The schema below shows the concrete notation for each
-section.
+## 2.2 Structure of an ASM  
 
-| | |
-| --- | --- |
-| | [**`asyncr`**] **`asm`** *name* |
+An ASM model is structured into four sections: an header, an initialization, a body and a main rule. The schema below shows the concrete notation for each
+section.
+| **ASM**  | [**`asyncr`**] **`asm`** *name* |
 | |where:</br> - *name* is the name of the ASM. It must be equal to the name of the ASM file (as name.asm) The keyword **asyncr** specifies if the ASM is an *asynchronous* multi-agent or not. If omitted, the ASM is considered a *synchronous* multi-agent ASM. |
 | **Header** | [ **`import`** *m1* [**(** id11,...,id1h1 **)**] **...**</br>  **`import`** mk [**(** idk1,...,idkhk **)**]] </br> [ **`export`** id1,...,ide ] or [**`export`** \*] |
 | |where:</br> -*m1,...,mk* are the names of the imported modules</br> - idi1,...,idihi are names for domains, functions and rules which are imported from module mi (if they are omitted all the content of the export clause of mi is imported);</br>- id1,...,ide are names for domains, functions and rules which can be exported from the ASM. **export*** denotes that all functions and rules of the ASM can be exported; |
@@ -26,7 +23,7 @@ section.
  assumed *single-agent* and the program and the identifier of
  the unique agent are respectively the ASM's *main rule* (see [Main rule](#Mainrule)) and the ASM's name.
 
-## 2.1 Structure of an ASM module
+## 2.2 Structure of an ASM module
 
 A
 lightweight notion of *module* is also supported. An ASM module is an
