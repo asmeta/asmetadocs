@@ -1,4 +1,7 @@
-## 7. Terms
+---
+title: Terms
+---
+
 
 There are two types of terms, *basic terms* as in first-order logic (*variables*, *constants* and *function
 applications)* and *extended terms* to represent special terms like *tuple* *terms*, *collection terms* (sets, maps, sequences, bags), the *conditional term*, *variable-binding
@@ -72,6 +75,7 @@ terms*, etc.
 | **RuleAsTerm** | **<<** R[ **(** D1,...,Dn  **)** ] **>>**  where R is the name of a defined transition  rule, and D1,...,Dn (if any) are the domains of the formal rule  parameters*.  It is a special term used to denote a transition rule where a term is  expected (e.g as actual parameter in a rule  application to represent a transition rule). Itsinterpretation results,  therefore, in a transition rule.  *Similarly to functions, rules can  be overloaded. When rules are overloaded, it is necessary to indicate  the domains of the formal rule parameters. |
 
 
+### *Standard* Operators 
 
 In addition to these terms, the AsmM concrete syntax admits special expressions to support the *infix notation* for some well-known functions on basic domains (like *plus*, *minus*, *mult*, etc.) of the AsmM *Standard Library*. In these expressions, basic
 terms and the domain term are used as operands. The table

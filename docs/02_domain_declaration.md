@@ -1,4 +1,6 @@
-## 2. Domain declarations
+---
+title: Domain declarations
+---
 
 The ASM domains (or
 universes) are classified in: *typedomains* and *concrete-domains*.

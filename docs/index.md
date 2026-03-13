@@ -1,10 +1,9 @@
 ---
-title: AsmetaL Syntax — Quick Guide
+title: AsmetaL — Reference Guide
 ---
 
-# AsmetaL syntax *A Quick Guide*
-
-1st April 2020
+# A Guide for the AsmetaL syntax  
+*March 2026*
 
 The AsmM concrete syntax (AsmetaL) is a textual notation
  to be used by modelers to effectively write ASM
@@ -25,10 +24,9 @@ The AsmetaL
 This quick guide gives a
  description of each part by presenting the notation in an intuitive style
  for better readability, instead of reporting the grammar productions. For
- a more formal definition see the [EBNF grammar](AsmetaL_EBNF.html).
+ a more formal definition see the [EBNF grammar](https://asmeta.github.io/material/AsmetaL_EBNF.html).
 
-Note that, to write an ASM
- model of a system, the file containing the ASM spec must contain a single
+Note that, to write an ASM  model of a system, the file containing the ASM spec must contain a single
  ASM structure definition and take the ".asm"
  extension (e.g. MyAsmModel.asm).
 

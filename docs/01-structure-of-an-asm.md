@@ -2,8 +2,6 @@
 title: Structure of an ASM
 ---
 
-## 1. Structure of an ASM  
-
 An ASM model is structured into four sections: an header, an initialization, a body and a main rule. The schema below shows the concrete notation for each
 section.
 
@@ -29,7 +27,7 @@ section.
  assumed *single-agent* and the program and the identifier of
  the unique agent are respectively the ASM's *main rule* (see [Main rule](#Mainrule)) and the ASM's name.
 
-## 2.2 Structure of an ASM module
+### Structure of an ASM module
 
 A
 lightweight notion of *module* is also supported. An ASM module is an

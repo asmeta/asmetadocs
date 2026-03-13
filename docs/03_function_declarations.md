@@ -1,5 +1,7 @@
+---
+title: Function Declarations
+---
 
-## 3. Function Declarations
 
 To declare an ASM function
 it is necessary to specify the name, the domain, and the codomain of the function. Moreover, the function name must be preceded by one of the
