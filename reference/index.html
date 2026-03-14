@@ -1,0 +1,682 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Asmeta documentation (for now only asmetal)">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Reference — Full Extract - AsmetaL documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reference-full-extract" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AsmetaL documentation" class="md-header__button md-logo" aria-label="AsmetaL documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AsmetaL documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reference — Full Extract
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AsmetaL documentation" class="md-nav__button md-logo" aria-label="AsmetaL documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AsmetaL documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-structure-of-an-asm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure of an ASM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_domain_declaration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain declarations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_function_declarations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function declarations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_transition_rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="reference-full-extract">Reference — Full Extract</h1>
+<h2 id="introduction">Introduction</h2>
+<p>AsmM Concrete Syntax 2.0.0 - A Quick Guide</p>
+<h1 id="asmetal-syntax">AsmetaL syntax</h1>
+<h2 id="a-quick-guide">A Quick Guide</h2>
+<h2 id="a-quick-guide_1">A Quick Guide</h2>
+<p>1st April 2020</p>
+<p>The AsmM
+    concrete syntax (AsmetaL) is a textual notation
+    to be used by modelers to effectively write ASM
+    models within the ASMETA framework. It is defined in terms of an EBNF (extended
+    Backus-Naur Form) grammar derived from a semantic interpretation of the AsmM
+    metamodel (the abstract syntax).</p>
+<p>The AsmetaL
+    language  can be divided roughly into four parts: the <em>structural
+    language </em>(provides the constructs required for describing the structure
+    of an ASM model.), the <em>definitional language</em> (provides the basic
+    definitional elements such as functions, domains, rules and axioms characterizing
+    an algebraic specification), the <em>language of terms</em> (provides all
+    kinds of syntactic expressions which can be evaluated in a state of an ASM),
+    and the <em>behavioral</em><em> language</em> or
+    the <em>language of rules</em> (provides a notation to specify the transition
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    rule schemes of an ASM).
+</span></code></pre></div></p>
+<p>This quick guide gives a
+    description of each part by presenting the notation in an intuitive style
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    for better readability, instead of reporting the grammar productions. For
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    a more formal definition see the [EBNF grammar](AsmetaL_EBNF.html).
+</span></code></pre></div></p>
+<p>Note that, to write an ASM
+    model of a system, the file containing the ASM spec must contain a single
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    ASM structure definition and take the &quot;.asm&quot;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    extension (e.g. MyAsmModel.asm).
+</span></code></pre></div></p>
+<h2 id="5">5.</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Domain declarations
+</span></code></pre></div>
+<h2 id="5_1">5.</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Domain declarations
+</span></code></pre></div>
+<p>The ASM domains (or
+universes) are classified in: <em>typedomains</em>
+and <em>concrete-domains</em>. </p>
+<p>The <em>type-domains</em>
+represent all possible <em>super domains</em> (for practical reasons, the superuniverse |S| of an ASM state S is divided into smaller
+universes) and are further classified in: <em>basic type-domains</em>, domains
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>for primitive data values like booleans, reals, integers, naturals, strings, etc.; *structured
+</span></code></pre></div></p>
+<p>type-domains*, domains for building</p>
+<div class="language-text highlight"><pre><span></span><code>data structures (like sets, sequences, bags, maps, tuples
+etc.) over other domains; *abstract type-domain*s,
+</code></pre></div>
+<p><code>asmetal
+    dynamic user-named domains whose elements have no precise structure and are
+    imported as fresh elements from a possibly infinite reserve by means of extend
+    rules (see section [Transition rules](#rules)); and *enum**
+    domains*, finite user-named enumerations to introduce new concepts of
+    type (e.g. one may define the enumeration Color
+    = {RED, GREEN, BLUE} to introduce the new concept of "color").</code></p>
+<p><em>Concrete domains</em> are user-named sub-domains of
+type-domains. As for functions, a concrete domain can be static or dynamic. </p>
+<p>The schema below shows the
+notation for declaring a domain. Domains declared as "anydomain"
+are generic domains representing any other type-domain. The standard library
+defines one "predefined" anydomain, named Any, which represents the most generic one. As basic
+type-domains only Complex, Real, Integer, Natural, String, Char, Boolean, Rule,
+and the singleton Undef={undef} are allowed and defined in the standard library as
+predefined basic type-domains. Moreover, two other special abstract domains are
+considered predefined: the Agent domain for agents, and the Reserve domain
+which works as "reserve" to increase the working space of an ASM. Note
+that, the Reserve domain is considered "abstract", and therefore
+"dynamic", since it is updated automatically upon execution of an
+extend rule (see section <a href="#rules">Transition rules</a>) – it can not be updated directly by
+other transition rules –.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>| **Model****   element** | **Concrete syntax** |
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>| --- | --- |
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>| **AnyDomain** | **anydomain** D       where D is the name   of the domain representing any other type-domain. A predefined generic domain   named Any is declared in the standard library and considered the most generic   one. |
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>| **BasicTD** | **basic** **domain** D       Only **Complex**, **Real**, **Integer**,   **Natural**, **String**, **Char**, **Boolean**, **Rule**, and **Undef** are allowed (users can not define other   basic domains). They are declared in the standard library as   &quot;predefined&quot; basic type-domains. |
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>| **AbstractTD** | **abstract** **domain** D        where D is the name   of the type-domain. |
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>| **EnumTD** | **enum** **domain** D **= { **EL1|...|ELn** }**        where:    - D is the name of the enum type-domain;     - EL1,...,ELn** **are the elements of the   enumeration. |
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>| **ProductDomain** | **Prod** **(** d1,d2,...,dn **)**              where d1,...,dn** **are the domains over which the cartesian           product is defined. |
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>| **SequenceDomain** | **Seq** **(** d **)**              where d** **is the domain over which the sequence domain is defined. |
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>| **PowersetDomain** | **Powerset** **(** d **)**             where d** **is the domain over which the power set is defined. |
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>| **BagDomain** | **Bag** **(** d **)**             where d** **is the domain over which the bag domain is defined. |
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>| **MapDomain** | **Map** **(** d1,d2 **)**             where d1,d2 are the domains over which the map domain is defined. |
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>| **ConcreteDomain** | [** dynamic **] **domain** D **subsetof** td       where:    - D is the name of the concrete domain to declare;     - td is a type-domain which identifies the structure of the elements of the   declared concrete domain. The keyword **dynamic **denotes that the   declared domain is *dynamic*. If omitted, the domain is considered *static*. |
+</span></code></pre></div>
+<h2 id="6-function-declarations">6. Function Declarations</h2>
+<h2 id="6-function-declarations_1">6. Function Declarations</h2>
+<p>To declare an ASM function
+it is necessary to specify the name, the domain, and the codomain
+of the function. Moreover, the function name must be preceded by one of the
+keywords <strong>static</strong>, <strong>dynamic</strong> or <strong>derived</strong>,
+depending on its kind. Dynamic functions are further classified in <strong>monitored</strong>,
+<strong>controlled</strong>, <strong>shared</strong>, <strong>out</strong> and <strong>local</strong>.
+Local dynamic functions are not considered part of the signature; they are
+declared and used only in the scope of a turbo transition rule with "local
+state" (see section <a href="#rules">Transition rules</a>).</p>
+<p>The schema below shows the
+concrete syntax for declaring a function F (the name) from D (the domain)
+to C (the codomain).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>| **Model****   element** | **Concrete syntax** |
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>| --- | --- |
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>| **StaticFunction** | **static** F : [ D -&gt; ] C |
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>| **DynamicFunction****** | [ **dynamic** ] ( **monitored** | **controlled**   | **shared** | **out**   | **local** ) F **:** [ D **-&gt;** ] C       A dynamic function is declared specifying its   kind (*monitored*, *controlled*, *shared*, or *out*);   optionally, the keyword **dynamic **can be also added as prefix. *Local*   dynamic functions can be declared only in the scope of a turbo transition   rule with local state (see section Transition rules). |
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>| **DerivedFunction****** | **derived** F **:** [ D **-&gt;** ] C |
+</span></code></pre></div>
+<h2 id="7-terms">7. Terms</h2>
+<h2 id="7-terms_1">7. Terms</h2>
+<p>There are two types of terms, <em>basic terms</em>
+as in first-order logic (<em>variables</em>, <em>constants</em> and <em>function
+applications) </em>and <em>extended terms</em> to represent special terms like <em>tuple</em><em> terms</em>, <em>collection terms</em>
+(sets, maps, sequences, bags), the<em> conditional term</em>, <em>variable-binding
+terms</em>, etc. </p>
+<h3 id="basic-terms">Basic Terms</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>| **Model****   element** | **Concrete syntax** |
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>| --- | --- |
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>| **ConstantTerm** | **Complex number**, as in  x**+i**y, where x and y are real numbers and **i**** **is the imaginary   unit. A complex number must be written without spaces within, because it is   considered a unique token. E.g.: -2-**i**3       **Real terms **as floating point numbers. E.g: +3.4 , -3.4   , 3.4, 0.0   ,etc...       **Integer terms **as signed numbers. E.g.: 3, +3, -3, 0, etc...       **Natural numbers **as unsigned numbers plus the   suffix &quot;n&quot;. E.g.: 3n, 0n, etc...       **Char terms** as char literals delimited by single   quotes. E.g.: &#39;a&#39;, &#39;5&#39;,   etc...       **String terms** as a string of literals delimited   of double quotes: E.g.: &quot;hello&quot;, &quot;1256&quot;, etc...       **Boolean terms**: **true**,   **false        Undef term: undef**       **Enum**** term:** e  where e is an element of an enumeration   type-domain. |
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>| **VariableTerm** | v        where v is a variable. The variable can   be a *location variable* (which is replaced by a *location term )*, or a *rule   variable *(which is replaced by a *rule term* ), or a  *logical   variable* (which is replaced by a term that is neither a location term   nor a rule term). |
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>| **FunctionTerm** | [id **.** ]f [ **( **t1,...,tn** )** ]       where:    - f is the function   to apply and (t1,...,tn) is a tuple   term representing the actual parameters of the function f. If f is a 0-ary   function, there is no tuple term.    - id is the agent that applies the function f.    Within  the rules of the ASM, each agent can   identify itself by means of a special reserved 0-ary function  self:Agent, which is interpreted by each agent a as a. For a  function f:X-&gt;Y, for example, the expression f(self,x) or self.f(x) denotes the private version f(x) belonging   to agent self. When it is clear from the contex who is   denoted by self, notationally self is omitted. |
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>| **LocationTerm** | A specialized function term where f is a dynamic   function fixed by the ASM signature. |
+</span></code></pre></div>
+<h3 id="extended-terms">Extended Terms</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>| **Model****   element** | **Concrete syntax** |
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>| --- | --- |
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>| **TupleTerm** | **( **t1,...,tn** )**** **       where t1,...,tn are terms, that can have a distinct nature. The empty tuple is not allowed. |
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>| **SequenceTerm** | **[ **t1,...,tn** ]**       where t1,...,tn are terms of the same nature.       **[ ] **denotes   the empty sequence.             A           finite sequence over numbers (real, integer and natural)           can be also defined by means of an **interval notation**, as in        **[ **tlow     : tupp [ ,s ] **]**       where:            -  tlow and tupp           are numbers representing, respectively,           the lower and the upper elements of the sequence.             -  s is a positive number representing the step used to take the elements.           If s is omitted it is assumed &quot;**s=1**&quot; by default. |
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>| **SequenceCT** | **[**           v1 **in** S1,...,vn **in** Sn            [**|****           **Gv1,...,vn ] : tv1,...,vn           **]**       where:     - v1,...,vn are variables.            - tv1,...,vn is the main term containing free           occurrences of  v1,...,vn.    - S1,...,Sn are terms representing the   sequences where the variables v1,...,vn take their value.             - Gv1,...,vn is a term representing a boolean condition containing occurrences of  v1,...,vn. If  Gv1,...,vn  is omitted it is assumed &quot;**true**&quot;           as default condition. |
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>| **SetTerm** | **{ **t1,...,tn** }**       where t1,...,tn are terms of the same nature.       **{ }**** **denotes the empty set.             A           finite set over numbers (real, integer and natural)           can be also defined by means of an **interval notation**, as in        **[ **tlow     :    tupp [ ,s ] **]**       where:    - tlow and tupp are real number representing,   respectively, the lower and the upper elements of the set             - s is a positive number representing the step used to take the elements.           If s is omitted it is assumed &quot;**s=1**&quot; by default. |
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>| **SetCT** | **{**           v1 **in** D1,...,vn **in** Dn   [**|****           **Gv1,...,vn ] : tv1,...,vn           **}**       where:    - v1,...,vn are variables.            - tv1,...,vn is the main term containing free           occurrences of  v1,...,vn.    - D1,...,Dn are terms representing the   domains where the variables v1,...,vn take their value.             - Gv1,...,vn is a term representing a boolean condition containing occurrences of  v1,...,vn. If  Gv1,...,vn  is omitted it is assumed &quot;**true**&quot;           as default condition. |
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>| **BagTerm** | ****t1,...,tn** &gt;**       where t1,...,tn are terms of the same nature.       ** **denotes the empty bag.    The notation for a bag of bags needs at least one space before to list the   bag elements as in ******   ********...**** &gt;,****...****,****...****&gt;&gt;**.             A           finite bag over numbers (real, integer and natural)           can be also defined by means of an **interval notation**, as in        **[ **tlow     : tupp [ ,s ] **]**       where:    - tlow and tupp are real number representing,   respectively, the lower and the upper elements of the bag.             - s is a positivel number representing the step used to take the elements.           If s is omitted it is assumed &quot;**s=1**&quot; by default. |
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>| **BagCT** | **** **in** B1,...,vn **in** Bn   [**|****           **Gv1,...,vn ] : tv1,...,vn            **&gt;**       where:    -  v1,...,vn are variables.    - tv1,...,vn is a term containing free   occurrences of  v1,...,vn.     - B1,...,Bn are terms representing the bags   where the variables v1,...,vn take their value.             - Gv1,...,vn is a term representing a boolean condition containing occurrences of  v1,...,vn. If  Gv1,...,vn  is omitted it is assumed &quot;**true**&quot;           as default condition. |
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>| **MapTerm** | **{**   t1** -&gt; **s1,...,tn **-&gt; **sn **}**       where:    -  t1,...,tn are terms of the same nature.    -  s1,...,sn are terms of the same nature.       **{ ****-&gt;} **denotes the empty map. |
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>| **MapCT** | **{**v1 in D1,...,vn in Dn  [|           Gv1,...,vn ] : tv1,...,vn -&gt; sv1,...,vn **           }**       where:    -  v1,...,vn are variables.    -  tv1,...,vn  sv1,...,vn   are terms containing   free occurrences of  v1,...,vn.    - D1,...,Dn are terms representing the domains where the   variables v1,...,vn take their value.             - Gv1,...,vn is a term representing a boolean condition containing occurrences of  v1,...,vn. If  Gv1,...,vn  is omitted it is assumed &quot;**true**&quot;           as default condition. |
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>| **ConditionalTerm** | **if**   G **then** tthen [**   else** telse ] **endif**       where:    - G is a term representing a boolean condition.    - tthen and telse are terms of the same   nature. If  telse is omitted it is assumed &quot;**else undef**&quot; as default. |
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>| **CaseTerm** | **switch** t **case** t1 **:** s1 ... **case **tn **:** sn [** otherwise **sn+1 ] **endswitch**       where:** **    - t,t1,...,tn are terms of the same   nature.     - s1,...,sn,sn+1 are terms of the same   nature. If sn+1 is omitted it is assumed &quot;**otherwise   undef**&quot; as default. |
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>| **LetTerm** | **let ( **v**1=**t1,   ..., v**n****=**tn** )** **in** tv1,...,vn **endlet**       where:    - v1,...,vn are variables.    - t1,...,tn are terms.     - tv1,...,vn is a term containing free   occurrences of v1,...,vn. |
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>| **ExistTerm** | **( exist **v**1** **in** D1,...,vn **in **Dn**   **[** with **Gv1,...,vn ]**)**       where:     - v1,...,vn are variables.     - D1,...,Dn are terms representing the domains where v1,...,vn take their value.     - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn  is omitted it is assumed &quot;**with   true**&quot; as default condition. |
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>| **ExistUniqueTerm** | **( exist unique **v**1** **in** D1,...,vn **in **Dn**   **[** with **Gv1,...,vn ]**)**       where:    - v1,...,vn are variables.    - D1,...,Dn are terms representing the domains where v1,...,vn take their value.    - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn  is omitted it is assumed &quot;**with   true**&quot; as default condition. |
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>| **ForallTerm** | **( forall **v**1** **in** D1,...,vn **in **Dn**   **[** with **Gv1,...,vn ]**)**       where:    - v1,...,vn are variables.    - D1,...,Dn are terms representing the domains where v1,...,vn take their value.    - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn  is omitted it is assumed &quot;**with   true**&quot; as default condition. |
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>| **DomainTerm** | D       where D is the name of a domain declared   in the ASM signature or directly the expression for a structured type-domain. |
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>| **RuleAsTerm** | **** R[ **( **D1,...,Dn** ****)** ]** &gt;&gt;**             where R is the name of a defined transition           rule, and D1,...,Dn (if any) are the domains of the formal rule           parameters*.           It is a special term used to denote a transition rule where a term is           expected (e.g as actual parameter in a rule           application to represent a transition rule). Its           interpretation results,           therefore, in a transition rule.             *Similarly to functions, rules can           be overloaded. When rules are overloaded, it is necessary to indicate           the domains of the formal rule parameters. |
+</span></code></pre></div>
+<p>In addition to these terms, the AsmM
+concrete syntax admits special expressions to support the <em>infix notation</em>  for some well-known functions on basic domains (like <em>plus</em>,
+<em>minus</em>, <em>mult</em>, etc.) of the AsmM <em>Standard Library</em>. In these expressions, basic
+terms and the domain term are used as operands. The table
+below show the infix operators corresponding to these functions,
+together with their associativies and priorities. The
+operator priorities range from 0 to 9, where 9 indicates
+the strongest one and 0 the weakest one. </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>| **Function****** | **Infix****   operator** | **Type****** | **Associativity****** | **Priority****** |
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>| --- | --- | --- | --- | --- |
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>| minus (unary)       plus (unary) | -       + | Complex → Complex     Real → Real     Integer → Integer | left | 9 |
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>| pwr | ^ | Real × Real → Real | left | 8 |
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>| mult | * | Complex × Complex →   Complex    Real × Real → Real    Integer × Integer →   Integer    Natural × Natural →   Natural | left | 7 |
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>| div | / | Complex × Complex →   Complex    Real × Real → Real    Integer × Integer →   Real    Natural × Natural →   Real | left | 7 |
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>| mod | mod | Integer × Integer → Integer    Natural × Natural → Natural | left | 7 |
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>| plus | + | Complex × Complex →   Complex    Real × Real → Real    Integer × Integer →   Integer    Natural × Natural →   Natural | left | 6 |
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>| minus | - | Complex × Complex →   Complex    Real × Real → Real             Integer × Integer →   Integer    Natural × Natural →   Natural | left | 6 |
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>| lt |  | Real × Real → Boolean     Integer × Integer → Boolean    Natural × Natural → Boolean    Char × Char → Boolean | left | 5 |
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>| le |  | Real × Real → Boolean     Integer × Integer → Boolean    Natural × Natural → Boolean    Char × Char → Boolean | left | 5 |
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>| gt | &gt; | Real × Real → Boolean     Integer × Integer → Boolean    Natural × Natural → Boolean    Char × Char → Boolean | left | 5 |
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>| ge | &gt;= | Real × Real → Boolean     Integer × Integer → Boolean    Natural × Natural → Boolean    Char × Char → Boolean | left | 5 |
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>| eq | = | D × D → Boolean    where D stands for a   basic type domain (except the Rule type domain), or a   Enum type domain. | left | 5 |
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>| neq | != | D × D → Boolean    where D stands for a   basic type domain (except the Rule type domain), or a   Enum type domain. | left | 5 |
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>| in | in | powerset(D) × D → Boolean | left | 4 |
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>| notin | notin | powerset(D) × D → Boolean | left | 4 |
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>| not | not | Boolean → Boolean | left | 3 |
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>| and | and | Boolean × Boolean →   Boolean | left | 2 |
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>| xor | xor | Boolean × Boolean →   Boolean | left | 1 |
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>| or | or | Boolean × Boolean →   Boolean | left | 1 |
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>| implies | implies | Boolean × Boolean →   Boolean | left | 0 |
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>| iff | iff | Boolean × Boolean →   Boolean | left | 0 |
+</span></code></pre></div>
+<h2 id="8-transition-rules">8. Transition Rules</h2>
+<h2 id="8-transition-rules_1">8. Transition Rules</h2>
+<p>In a given state, a
+transition rule of an ASM produces for each variable assignment an update set
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>for some dynamic functions of the signature. We classify transition rules in
+</span></code></pre></div></p>
+<p>two groups: <em>basic rules</em> and <em>turbo rules</em>. The former are
+simply rules, like the <em>skip rule</em> and the <em>update rule</em>, while
+the latter are rules, like the <em>sequence rule</em> and the <em>iterate rule</em>,
+introduced to support practical composition and structuring principles of the ASMs. Other rule schemes are derived from the basic and the
+turbo rules.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>| **Model****   element** | **Concrete syntax ** |
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>| --- | --- |
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>| **SkipRule** | **skip** |
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>| **UpdateRule** | l **:=** t         where:    - t is a generic term.     - l can be either a location term f(t1,...,tn) or a location variable.     Note that all the rules, which return a value t, contain an update rule as in result:=t, where result is a reserved 0-ary function   acting as placeholder in which to store the intended return value.** ** |
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>| **BlockRule** | **par** R1 R2 ... Rn **endpar**        where R1,R2,...,Rn are transition rules. |
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>| **ConditionalRule** | **if**   G **then** Rthen [**else** Relse] **endif**       where:    - G is a term representing a boolean condition.    - Rthen and Relse are transition rules. If  Relse is omitted it   is assumed &quot;**else skip**&quot; as default. |
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>| **CaseRule****** | **switch** t **case** t1 **:** R1 ... **case   **tn **:** Rn [**otherwise **Rn+1] **endswitch**       where:    - t,t1,...,tn are terms.     - R1,...,Rn,Rn+1 are transition rules. If  Rn+1 is omitted it is assumed &quot;**otherwise   skip**&quot; as default. |
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>| **LetRule** | **let ( **v1**=**t1,   ..., vn**=**tn** )** **in** Rv1,...,vn **endlet**       where:    - v1,...,vn are variables.    - t1,...,tn are terms.     - Rv1,...,vn is a transition rule which   contains occurrences of variables v1,...,vn. |
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>| **ForallRule** | **forall** v1 **in **D1, ..., vn **in **Dn **with** Gv1,...,vn **do** Rv1,...,vn       where:    - v1,...,vn  are variable.     - D1,...,Dn are terms representing the domains where v1,...,vn  take their values.    - Gv1,...,vn is a term representing a boolean condition over v1,...,vn.     - Rv1,...,vn is a transition rule which   contains occurrences of variables v1,...,vn. |
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>| **ChooseRule** | **choose** v1 **in **D1, ..., vn **in **Dn **with** Gv1,...,vn **do** Rv1,...,vn [** ifnone   **P ]       where:    - v1,...,vn are variables.    - D1,...,Dn are terms representing the   domains where v1,...,vn take their values.     - Gv1,...,vn is a term representing a boolean condition over v1,...,vn.     - Rv1,...,vn is a transition rule which   contains the free variables v1,...,vn.     - P is a transition   rule. If  P is omitted it is assumed &quot;**ifnone**** skip**&quot; as default. |
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>| **MacroCallRule** | r **[**t1,...,tn**]**        where:    - r is the name of the macro.     - t1,...,tn are terms representing the arguments.       r **[]**  is used for a macro with no   arguments. |
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>| **ExtendRule** | **extend** D **with **v1,...,vn **do** R       where:    - D is the name of the abstract type-domain to be extended.    - v1,...,vn are logical variables which are bound to the   new elements imported in D from the reserve     - R is a transition rule. |
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>| **SeqRule** | **seq**** **R1 R2 ... Rn** endseq**       where R1,R2,...,Rn are transition rules. |
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>| **IterateRule** | **iterate **R **enditerate**       where R is a transition rule. |
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>| **IterativeWhileRule** | **while** G** do **R            where:    - G is a term representing a boolean condition.       - R is a transition rule. |
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>| **TurboCallRule** | r**(**t1,...,tn**)**       where:    - r is the name of the called transition rule.     - t1,...,tn are terms representing the arguments.       r**(****) **is used to call a rule with no   arguments. |
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>| **RecursiveWhileRule** | **recwhile**** **G**   do **R** **       where G is a term representing a boolean condition and R is a transition rule. |
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>| **TurboLocalStateRule****** | [**dynamic**]** local** f1 **:**[D1 **-&gt;**]C1 **[** Init1 **]    **...    [**dynamic**]** local **fk **:**[Dk **-&gt;**]Ck **[** Initk **]    **body       where:    - Init1,...,Initk   and body** **are transition rules.     - [**dynamic**]** local** fi **:**[Di **-&gt;**]Ci are declarations of local dynamic functions (see DynamicFunction declaration). |
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>| **TryCatchRule** | **try** P **catch **l1,...,ln Q       where:     - P and Q are transition rules.     - l1,...,ln are either location terms or location   variables. |
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>| **TurboReturnRule****** | l ** r**(**t1,...,tn**)**       where:    - l is either a location term or a location variable.     - r(t1,...,tn) is a TurboCall rule. |
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>| **TermAsRule** | v       where v is either a rule variable or a   function term. This rule works as a form of wrapper to allow the use of   either a function term or a variable term where a rule is expected. |
+</span></code></pre></div>
+<h2 id="9">9.</h2>
+<p>Comments</p>
+<h2 id="9_1">9.</h2>
+<p>Comments</p>
+<p>Comments can be written as
+follows:</p>
+<p>// text to be commented </p>
+<p>/<em> text to be
+commented</em>/</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

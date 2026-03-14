@@ -1,0 +1,904 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Asmeta documentation (for now only asmetal)">
+      
+      
+      
+      
+        <link rel="prev" href="../03_function_declarations/">
+      
+      
+        <link rel="next" href="../05_transition_rules/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Terms - AsmetaL documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basic-terms" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AsmetaL documentation" class="md-header__button md-logo" aria-label="AsmetaL documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AsmetaL documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Terms
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AsmetaL documentation" class="md-nav__button md-logo" aria-label="AsmetaL documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AsmetaL documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-structure-of-an-asm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure of an ASM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_domain_declaration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain declarations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_function_declarations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function declarations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Operators
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_transition_rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Operators
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Terms</h1>
+
+<p>There are two types of terms, <em>basic terms</em> as in first-order logic (<em>variables</em>, <em>constants</em> and <em>function
+applications)</em> and <em>extended terms</em> to represent special terms like <em>tuple</em> <em>terms</em>, <em>collection terms</em> (sets, maps, sequences, bags), the <em>conditional term</em>, <em>variable-binding
+terms</em>, etc.</p>
+<ul>
+<li><a href="#basTerms">Basic Terms</a><ul>
+<li><a href="#ConstT">ConstantTerm</a></li>
+<li><a href="#VarT">VariableTerm</a></li>
+<li><a href="#FunT">FunctionTerm</a></li>
+<li><a href="#LocationT">Location Term</a></li>
+</ul>
+</li>
+<li><a href="#extTerms">Extended Terms</a><ul>
+<li><a href="#TupleT">TupleTerm</a></li>
+<li><a href="#SequenceT">SequenceTerm</a></li>
+<li><a href="#SeqCT">SequenceCT</a></li>
+<li><a href="#SetT">SetTerm</a></li>
+<li><a href="#SetCT">SetCT</a></li>
+<li><a href="#BagT">BagTerm</a></li>
+<li><a href="#BagCT">BagCT</a></li>
+<li><a href="#MapT">MapTerm</a></li>
+<li><a href="#MapCT">MapCT</a></li>
+<li><a href="#ConditT">ConditionalTerm</a></li>
+<li><a href="#CaseT">CaseTerm</a></li>
+<li><a href="#LetT">LetTerm</a></li>
+<li><a href="#ExistT">ExistTerm</a></li>
+<li><a href="#ExistUniqT">ExistUniqueTerm</a></li>
+<li><a href="#forallT">ForallTerm</a></li>
+<li><a href="#DomT">DomainTerm</a></li>
+<li><a href="#RuleAsT">RuleAsTerm</a></li>
+</ul>
+</li>
+<li><a href="#infixOp">Infix Operators table</a></li>
+</ul>
+<h3 id="basic-terms">Basic Terms</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Model</strong> <strong>element</strong></th>
+<th><strong>Concrete syntax</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ConstantTerm</strong></td>
+<td><strong>Complex number</strong>, as in  x<strong>+i</strong>y, where x and y are real numbers and <strong>i</strong>  is the imaginary  unit. A complex number must be written without spaces within, because it is  considered a unique token. E.g.: -2-<strong>i</strong>3</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Real terms</strong> as floating point numbers. E.g: +3.4 , -3.4  , 3.4, 0.0  ,etc...</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Integer terms</strong> as signed numbers. E.g.: 3, +3, -3, 0, etc...</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Natural numbers</strong> as unsigned numbers plus the  suffix "n". E.g.: 3n, 0n, etc...</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Char terms</strong> as char literals delimited by single  quotes. E.g.: 'a', '5',  etc...</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>String terms</strong> as a string of literals delimited  of double quotes: E.g.: "hello", "1256", etc...</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Boolean terms</strong>: <strong>true</strong>,  <strong>false</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Undef term: undef</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Enum</strong> <strong>term:</strong> e where e is an element of an enumeration  type-domain.</td>
+</tr>
+<tr>
+<td><strong>VariableTerm</strong></td>
+<td>v  where v is a variable. The variable can  be a <em>location variable</em> (which is replaced by a <em>location term )</em>, or a <em>rule  variable</em> (which is replaced by a <em>rule term</em> ), or a <em>logical  variable</em> (which is replaced by a term that is neither a location term  nor a rule term).</td>
+</tr>
+<tr>
+<td><strong>FunctionTerm</strong></td>
+<td>[id <strong>.</strong> ]f [ <strong>(</strong> t1,...,tn <strong>)</strong> ]  where:     - f is the function  to apply and (t1,...,tn) is a tuple  term representing the actual parameters of the function f. If f is a 0-ary  function, there is no tuple term.     - id is the agent that applies the function f.     Within the rules of the ASM, each agent can  identify itself by means of a special reserved 0-ary function self:Agent, which is interpreted by each agent a as a. For a function f:X-&gt;Y, for example, the expression f(self,x) or self.f(x) denotes the private version f(x) belonging  to agent self. When it is clear from the contex who is  denoted by self, notationally self is omitted.</td>
+</tr>
+<tr>
+<td><strong>LocationTerm</strong></td>
+<td>A specialized function term where f is a dynamic  function fixed by the ASM signature.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="extended-terms">Extended Terms</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Model</strong><strong>element</strong></th>
+<th><strong>Concrete syntax</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TupleTerm</strong></td>
+<td><strong>(</strong> t1,...,tn <strong>)</strong>  where t1,...,tn are terms, that can have a distinct nature. The empty tuple is not allowed.</td>
+</tr>
+<tr>
+<td><strong>SequenceTerm</strong></td>
+<td><strong>[</strong> t1,...,tn <strong>]</strong>  where t1,...,tn are terms of the same nature.   <strong>[ ]</strong> denotes  the empty sequence.  A  finite sequence over numbers (real, integer and natural)  can be also defined by means of an <strong>interval notation</strong>, as in   <strong>[</strong> tlow  : tupp [ ,s ] <strong>]</strong>  where:     -  tlow and tuppare numbers representing, respectively,  the lower and the upper elements of the sequence.      -  s is a positive number representing the step used to take the elements.  If s is omitted it is assumed "<strong>s=1</strong>" by default.</td>
+</tr>
+<tr>
+<td><strong>SequenceCT</strong></td>
+<td><strong>[</strong>v1 <strong>in</strong> S1,...,vn <strong>in</strong> Sn [<strong>|</strong>Gv1,...,vn ] : tv1,...,vn<strong>]</strong>  where:      - v1,...,vn are variables.     - tv1,...,vn is the main term containing free  occurrences of v1,...,vn.     - S1,...,Sn are terms representing the  sequences where the variables v1,...,vn take their value.      - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "<strong>true</strong>"  as default condition.</td>
+</tr>
+<tr>
+<td><strong>SetTerm</strong></td>
+<td><strong>{</strong> t1,...,tn <strong>}</strong>  where t1,...,tn are terms of the same nature.   <strong>{ }</strong>  denotes the empty set.  A  finite set over numbers (real, integer and natural)  can be also defined by means of an <strong>interval notation</strong>, as in   <strong>[</strong> tlow  : tupp [ ,s ] <strong>]</strong>  where:  - tlow and tupp are real number representing,  respectively, the lower and the upper elements of the set   - s is a positive number representing the step used to take the elements.  If s is omitted it is assumed "<strong>s=1</strong>" by default.</td>
+</tr>
+<tr>
+<td><strong>SetCT</strong></td>
+<td><strong>{</strong>v1 <strong>in</strong> D1,...,vn <strong>in</strong> Dn   [<strong>|</strong>Gv1,...,vn ] : tv1,...,vn<strong>}</strong>  where:     - v1,...,vn are variables.     - tv1,...,vn is the main term containing free  occurrences of v1,...,vn.     - D1,...,Dn are terms representing the  domains where the variables v1,...,vn take their value.      - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "<strong>true</strong>"  as default condition.</td>
+</tr>
+<tr>
+<td><strong>BagTerm</strong></td>
+<td><strong>&lt;</strong> t1,...,tn <strong>&gt;</strong>  where t1,...,tn are terms of the same nature.   <strong>&lt; &gt;</strong> denotes the empty bag.     The notation for a bag of bags needs at least one space before to list the  bag elements as in <strong>&lt;</strong><strong>&lt;</strong><strong>...</strong> <strong>&gt;,</strong><strong>...</strong><strong>,&lt;</strong><strong>...</strong><strong>&gt;&gt;</strong>.  A  finite bag over numbers (real, integer and natural)  can be also defined by means of an <strong>interval notation</strong>, as in   <strong>[</strong> tlow  : tupp [ ,s ] <strong>]</strong>  where:     - tlow and tupp are real number representing,  respectively, the lower and the upper elements of the bag.      - s is a positivel number representing the step used to take the elements.  If s is omitted it is assumed "<strong>s=1</strong>" by default.</td>
+</tr>
+<tr>
+<td><strong>BagCT</strong></td>
+<td><strong>&lt;</strong> <strong>in</strong> B1,...,vn <strong>in</strong> Bn   [<strong>|</strong>Gv1,...,vn ] : tv1,...,vn <strong>&gt;</strong>  where:  -  v1,...,vn are variables.  - tv1,...,vn is a term containing free  occurrences of v1,...,vn.      - B1,...,Bn are terms representing the bags  where the variables v1,...,vn take their value.   - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "<strong>true</strong>"  as default condition.</td>
+</tr>
+<tr>
+<td><strong>MapTerm</strong></td>
+<td><strong>{</strong>t1 <strong>-&gt;</strong> s1,...,tn <strong>-&gt;</strong> sn <strong>}</strong>  where:  -  t1,...,tn are terms of the same nature.  -  s1,...,sn are terms of the same nature.  <strong>{</strong> <strong>-&gt;}</strong> denotes the empty map.</td>
+</tr>
+<tr>
+<td><strong>MapCT</strong></td>
+<td><strong>{</strong>v1 in D1,...,vn in Dn  [|Gv1,...,vn ] : tv1,...,vn -&gt; sv1,...,vn <strong>}</strong>  where:  -  v1,...,vn are variables.  -  tv1,...,vn  sv1,...,vnare terms containing  free occurrences of v1,...,vn.  - D1,...,Dn are terms representing the domains where the  variables v1,...,vn take their value.   - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "<strong>true</strong>"  as default condition.</td>
+</tr>
+<tr>
+<td><strong>ConditionalTerm</strong></td>
+<td><strong>if</strong>G <strong>then</strong> tthen [<strong>else</strong> telse ] <strong>endif</strong>  where:  - G is a term representing a boolean condition.  - tthen and telse are terms of the same  nature. If  telse is omitted it is assumed "<strong>else undef</strong>" as default.</td>
+</tr>
+<tr>
+<td><strong>CaseTerm</strong></td>
+<td><strong>switch</strong> t <strong>case</strong> t1 <strong>:</strong> s1 ... <strong>case</strong> tn <strong>:</strong> sn [ <strong>otherwise</strong> sn+1 ] <strong>endswitch</strong>  where:       - t,t1,...,tn are terms of the same  nature.   - s1,...,sn,sn+1 are terms of the same  nature. If sn+1 is omitted it is assumed "<strong>otherwise  undef</strong>" as default.</td>
+</tr>
+<tr>
+<td><strong>LetTerm</strong></td>
+<td><strong>let (</strong> v<strong>1=</strong>t1,  ..., v<strong>n</strong><strong>=</strong>tn <strong>)</strong> <strong>in</strong> tv1,...,vn <strong>endlet</strong>  where:  - v1,...,vn are variables.  - t1,...,tn are terms.   - tv1,...,vn is a term containing free  occurrences of v1,...,vn.</td>
+</tr>
+<tr>
+<td><strong>ExistTerm</strong></td>
+<td><strong>( exist</strong> v<strong>1</strong> <strong>in</strong> D1,...,vn <strong>in</strong> Dn[ <strong>with</strong> Gv1,...,vn ]<strong>)</strong>  where:  - v1,...,vn are variables.  - D1,...,Dn are terms representing the domains where v1,...,vn take their value.  - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "<strong>with  true</strong>" as default condition.</td>
+</tr>
+<tr>
+<td><strong>ExistUniqueTerm</strong></td>
+<td><strong>( exist unique</strong> v<strong>1</strong> <strong>in</strong> D1,...,vn <strong>in</strong> Dn[ <strong>with</strong> Gv1,...,vn ]<strong>)</strong>  where:  - v1,...,vn are variables.  - D1,...,Dn are terms representing the domains where v1,...,vn take their value.     - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "<strong>with  true</strong>" as default condition.</td>
+</tr>
+<tr>
+<td><strong>ForallTerm</strong></td>
+<td><strong>( forall</strong> v<strong>1</strong> <strong>in</strong> D1,...,vn <strong>in</strong> Dn[ <strong>with</strong> Gv1,...,vn ]<strong>)</strong>  where:  - v1,...,vn are variables.  - D1,...,Dn are terms representing the domains where v1,...,vn take their value.     - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "<strong>with  true</strong>" as default condition.</td>
+</tr>
+<tr>
+<td><strong>DomainTerm</strong></td>
+<td>D  where D is the name of a domain declared  in the ASM signature or directly the expression for a structured type-domain.</td>
+</tr>
+<tr>
+<td><strong>RuleAsTerm</strong></td>
+<td><strong>&lt;&lt;</strong> R[ <strong>(</strong> D1,...,Dn  <strong>)</strong> ] <strong>&gt;&gt;</strong>  where R is the name of a defined transition  rule, and D1,...,Dn (if any) are the domains of the formal rule  parameters<em>.  It is a special term used to denote a transition rule where a term is  expected (e.g as actual parameter in a rule  application to represent a transition rule). Itsinterpretation results,  therefore, in a transition rule.  </em>Similarly to functions, rules can  be overloaded. When rules are overloaded, it is necessary to indicate  the domains of the formal rule parameters.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="standard-operators"><em>Standard</em> Operators</h3>
+<p>In addition to these terms, the AsmM concrete syntax admits special expressions to support the <em>infix notation</em> for some well-known functions on basic domains (like <em>plus</em>, <em>minus</em>, <em>mult</em>, etc.) of the AsmM <em>Standard Library</em>. In these expressions, basic
+terms and the domain term are used as operands. The table
+below show the infix operators corresponding to these functions,
+together with their associativies and priorities. The
+operator priorities range from 0 to 9, where 9 indicates the strongest one and 0 the weakest one.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Infix</strong><strong>operator</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Associativity</strong></th>
+<th><strong>Priority</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>minus (unary)  plus (unary)</td>
+<td>-  +</td>
+<td>Complex → Complex   Real → Real   Integer → Integer</td>
+<td>left</td>
+<td>9</td>
+</tr>
+<tr>
+<td>pwr</td>
+<td>^</td>
+<td>Real × Real → Real</td>
+<td>left</td>
+<td>8</td>
+</tr>
+<tr>
+<td>mult</td>
+<td>*</td>
+<td>Complex × Complex →  Complex  Real × Real → Real  Integer × Integer →  Integer  Natural × Natural →  Natural</td>
+<td>left</td>
+<td>7</td>
+</tr>
+<tr>
+<td>div</td>
+<td>/</td>
+<td>Complex × Complex →  Complex  Real × Real → Real  Integer × Integer →  Real  Natural × Natural →  Real</td>
+<td>left</td>
+<td>7</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>mod</td>
+<td>Integer × Integer → Integer     Natural × Natural → Natural</td>
+<td>left</td>
+<td>7</td>
+</tr>
+<tr>
+<td>plus</td>
+<td>+</td>
+<td>Complex × Complex →  Complex  Real × Real → Real  Integer × Integer →  Integer  Natural × Natural →  Natural</td>
+<td>left</td>
+<td>6</td>
+</tr>
+<tr>
+<td>minus</td>
+<td>-</td>
+<td>Complex × Complex →  Complex  Real × Real → Real   Integer × Integer →  Integer  Natural × Natural →  Natural</td>
+<td>left</td>
+<td>6</td>
+</tr>
+<tr>
+<td>lt</td>
+<td>&lt;</td>
+<td>Real × Real → Boolean      Integer × Integer → Boolean     Natural × Natural → Boolean     Char × Char → Boolean</td>
+<td>left</td>
+<td>5</td>
+</tr>
+<tr>
+<td>le</td>
+<td>&lt;=</td>
+<td>Real × Real → Boolean      Integer × Integer → Boolean     Natural × Natural → Boolean     Char × Char → Boolean</td>
+<td>left</td>
+<td>5</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>&gt;</td>
+<td>Real × Real → Boolean      Integer × Integer → Boolean     Natural × Natural → Boolean     Char × Char → Boolean</td>
+<td>left</td>
+<td>5</td>
+</tr>
+<tr>
+<td>ge</td>
+<td>&gt;=</td>
+<td>Real × Real → Boolean      Integer × Integer → Boolean     Natural × Natural → Boolean     Char × Char → Boolean</td>
+<td>left</td>
+<td>5</td>
+</tr>
+<tr>
+<td>eq</td>
+<td>=</td>
+<td>D × D → Boolean  where D stands for a  basic type domain (except the Rule type domain), or aEnum type domain.</td>
+<td>left</td>
+<td>5</td>
+</tr>
+<tr>
+<td>neq</td>
+<td>!=</td>
+<td>D × D → Boolean  where D stands for a  basic type domain (except the Rule type domain), or aEnum type domain.</td>
+<td>left</td>
+<td>5</td>
+</tr>
+<tr>
+<td>in</td>
+<td>in</td>
+<td>powerset(D) × D → Boolean</td>
+<td>left</td>
+<td>4</td>
+</tr>
+<tr>
+<td>notin</td>
+<td>notin</td>
+<td>powerset(D) × D → Boolean</td>
+<td>left</td>
+<td>4</td>
+</tr>
+<tr>
+<td>not</td>
+<td>not</td>
+<td>Boolean → Boolean</td>
+<td>left</td>
+<td>3</td>
+</tr>
+<tr>
+<td>and</td>
+<td>and</td>
+<td>Boolean × Boolean →  Boolean</td>
+<td>left</td>
+<td>2</td>
+</tr>
+<tr>
+<td>xor</td>
+<td>xor</td>
+<td>Boolean × Boolean →  Boolean</td>
+<td>left</td>
+<td>1</td>
+</tr>
+<tr>
+<td>or</td>
+<td>or</td>
+<td>Boolean × Boolean →  Boolean</td>
+<td>left</td>
+<td>1</td>
+</tr>
+<tr>
+<td>implies</td>
+<td>implies</td>
+<td>Boolean × Boolean →  Boolean</td>
+<td>left</td>
+<td>0</td>
+</tr>
+<tr>
+<td>iff</td>
+<td>iff</td>
+<td>Boolean × Boolean →  Boolean</td>
+<td>left</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
