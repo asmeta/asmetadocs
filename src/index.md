@@ -1,8 +1,4 @@
----
-title: AsmetaL — Reference Guide
----
-
-# A Guide for the AsmetaL syntax  
+# AsmetaL — Reference Guide
 *March 2026*
 
 The AsmM concrete syntax (AsmetaL) is a textual notation
@@ -10,8 +6,7 @@ The AsmM concrete syntax (AsmetaL) is a textual notation
  models within the ASMETA framework. It is defined in terms of an EBNF (extended
  Backus-Naur Form) grammar derived from a semantic interpretation of the AsmM metamodel (the abstract syntax).
 
-The AsmetaL
- language  can be divided roughly into four parts: the *structural
+The AsmetaL language  can be divided roughly into four parts: the *structural
  language* (provides the constructs required for describing the structure
  of an ASM model.), the *definitional language* (provides the basic
  definitional elements such as functions, domains, rules and axioms characterizing
@@ -21,8 +16,7 @@ The AsmetaL
  the *language of rules* (provides a notation to specify the transition
  rule schemes of an ASM).
 
-This quick guide gives a
- description of each part by presenting the notation in an intuitive style
+This quick guide gives a description of each part by presenting the notation in an intuitive style
  for better readability, instead of reporting the grammar productions. For
  a more formal definition see the [EBNF grammar](https://asmeta.github.io/material/AsmetaL_EBNF.html).
 
