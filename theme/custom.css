@@ -1,0 +1,4 @@
+/* custom.css - optional tweaks for asmeta */
+code.hljs .keyword { font-weight: 600; }
+code.hljs .number { opacity: 0.9; }
+code.hljs .operator { color: inherit; }

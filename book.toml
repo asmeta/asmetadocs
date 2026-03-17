@@ -1,0 +1,11 @@
+[book]
+title = "My Awesome Book"
+authors = ["Your Name"]
+language = "en"
+
+[output.html]
+default-theme = "light"
+git-repository-url = "https://github.com/yourusername/my-book"
+edit-url-template = "https://github.com/yourusername/my-book/edit/main/{path}"
+additional-js = ["theme/highlight-asmeta.js", "theme/custom.js"]
+additional-css = ["theme/custom.css"]
