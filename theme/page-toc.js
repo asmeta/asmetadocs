@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!content) return;
 
   const headers = Array.from(
-    content.querySelectorAll("h2, h3")
+    content.querySelectorAll("h2, h3, h4")
   ).filter((el) => el.id && el.textContent.trim().length > 0);
 
   if (headers.length === 0) return;
