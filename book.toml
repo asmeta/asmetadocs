@@ -7,5 +7,5 @@ language = "en"
 default-theme = "light"
 git-repository-url = "https://asmeta.github.io/mdbook2/"
 edit-url-template = "https://asmeta.github.io/mdbook2/edit/main/{path}"
-additional-js = ["theme/highlight-asmeta.js", "theme/custom.js","theme/page-toc.js"]
+additional-js = ["theme/custom.js","theme/page-toc.js"]
 additional-css = ["theme/custom.css","theme/css/page-toc.css"]
