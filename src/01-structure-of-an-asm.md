@@ -1,13 +1,3 @@
-<div class="local-nav">
-
-### In questa pagina
-- [ASMETA declaration](#asmeta-declaration)
-- [Header](#header)
-- [Body](#body)
-- [Main](#main)
-- [Initializations](#initializations)
-
-</div>
 
 # Structure of an ASMETA model
 
