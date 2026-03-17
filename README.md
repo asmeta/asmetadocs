@@ -1,4 +1,4 @@
-# Asmeta Book
+# My Awesome mdBook
 
 This repository contains an example mdBook project ready for publishing to GitHub Pages.
 
