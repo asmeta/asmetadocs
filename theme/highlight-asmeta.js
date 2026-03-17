@@ -5,7 +5,7 @@ hljs.registerLanguage('asmeta', function(hljs) {
     aliases: ['asmeta'],
     keywords: {
       keyword:
-        'rule state action if then else let in when return module import include',
+        'asyncr asm if then else let in when return module import export signature',
       literal: 'true false null',
       built_in: 'print assert assert_eq'
     },
