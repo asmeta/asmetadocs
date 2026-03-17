@@ -1,9 +1,27 @@
 # Structure of an ASMETA model
 
 
-An ASM model is structured into four sections: an header, an initialization, a body and a main rule. The schema below shows the concrete notation for each
+An ASMETA model is structured into four sections: a header, an initialization, a body, and a main rule. The schema below shows the concrete notation for each
 section.
 
+## ASMETA declaration
+```asmeta
+ [asyncr] asm *name*
+```
+[ <span style="color: red;">asyncr</span> ] <span style="color: red;">asm</span> *name*
+
+## HEADER
+
+### IMPORT/EXPORT
+ [ <span style="color: red;">`import`</span> *m1* [**(** id11,...,id1h1 **)**] **...**</br>    <span style="color: red;">import</span> mk [**(** idk1,...,idkhk **)**]] </br> [ <span style="color: red;">export</span> id1,...,ide ] or [ <span style="color: red;">export *</span>]
+ 
+</br> -*m1,...,mk* are the names of the imported modules</br> - idi1,...,idihi are names for domains, functions and rules which are imported from module mi (if they are omitted all the content of the export clause of mi is imported);</br>- id1,...,ide are names for domains, functions and rules which can be exported from the ASM. **export*** denotes that all functions and rules of the ASM can be exported; 
+
+ ### SIGNATURE
+<span style="color: red;">`signature:`</span> </br> [ dom_decl1 ... dom_decln ] </br> [ fun_decl1 ... fun_declm ]
+
+dom_decl1,...,dom_decln are declarations of domains used in the ASM (see section [Domain declarations](02_domain_declaration.md));</br> - fun_decl1,...,fun_declm are declarations of functions used in the ASM (see section [Function declarations](03_function_declarations.md)).
+ 
 | **Model element** | **Concrete syntax** |
 | --- | --- |
 | **Asm declaration**  | [ <span style="color: red;">asyncr</span> ] <span style="color: red;">asm</span> *name* |
