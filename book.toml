@@ -5,7 +5,7 @@ language = "en"
 
 [output.html]
 default-theme = "light"
-git-repository-url = "https://github.com/yourusername/my-book"
-edit-url-template = "https://github.com/yourusername/my-book/edit/main/{path}"
+git-repository-url = "https://asmeta.github.io/mdbook2/"
+edit-url-template = "https://asmeta.github.io/mdbook2/edit/main/{path}"
 additional-js = ["theme/highlight-asmeta.js", "theme/custom.js"]
 additional-css = ["theme/custom.css"]
