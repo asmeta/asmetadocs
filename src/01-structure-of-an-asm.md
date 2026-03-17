@@ -1,6 +1,4 @@
-
 # Structure of an ASMETA model
-
 
 An ASMETA model is structured into four sections: a header, an initialization, a body, and a main rule. The schema below shows the concrete notation for each
 section.
