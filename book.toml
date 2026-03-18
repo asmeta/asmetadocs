@@ -12,6 +12,7 @@ additional-css = ["theme/custom.css"]
 hash-files = true
 smart-punctuation = true
 mathjax-support = true
+sidebar-header-nav = true
 
 [output.html.search]
 limit-results = 20
