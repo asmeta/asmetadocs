@@ -9,3 +9,12 @@ git-repository-url = "https://asmeta.github.io/mdbook2/"
 edit-url-template = "https://asmeta.github.io/mdbook2/edit/main/{path}"
 additional-js = ["theme/highlight-asmeta.js","theme/custom.js","theme/page-toc.js"]
 additional-css = ["theme/custom.css","theme/css/page-toc.css"]
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
