@@ -1,4 +1,3 @@
-// highlight-asmeta.js
 hljs.registerLanguage('asmeta', function(hljs) {
   return {
     name: 'Asmeta',
