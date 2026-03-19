@@ -27,3 +27,9 @@ hljs.registerLanguage('asmeta', function(hljs) {
     ]
   };
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('pre code.language-asmeta').forEach((block) => {
+    hljs.highlightElement(block);
+  });
+});
