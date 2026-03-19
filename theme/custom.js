@@ -1,9 +1,10 @@
-// custom.js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   if (typeof hljs !== 'undefined') {
     try {
-      // re-run highlighting to pick up the new language
-      document.querySelectorAll('pre code').forEach((block) => {
+      document.querySelectorAll('pre code.language-asmeta').forEach((block) => {
+        const raw = block.textContent;
+        block.removeAttribute('data-highlighted');
+        block.textContent = raw;
         hljs.highlightElement(block);
       });
     } catch (e) {
