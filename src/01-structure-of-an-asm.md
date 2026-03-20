@@ -8,7 +8,11 @@ The schema below shows the concrete notation for each section.
 ```asmeta
 [asyncr] asm name
 ```
-
+```rust
+fn main() {
+    // Some code
+}
+```
 
 [ <span style="color: red;">asyncr</span> ] <span style="color: red;">asm</span> *name*
 
