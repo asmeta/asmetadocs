@@ -25,7 +25,7 @@ to C (the codomain). 0-ary functions  (nullary function) (state varibales) have 
 
 A static function that given two integers return the max of them
 
-``` asmetal
+``` asmeta
 static max: Prod(Integer,Integer) -> Integer
 ```
     
