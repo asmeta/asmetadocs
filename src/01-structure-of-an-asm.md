@@ -76,23 +76,28 @@ definitions:
 ```
 #### Domain Definitions
 ```asmeta
-domain D1 = Dterm1 … domain Ds = Dterms
+domain D1 = Dterm1 …
+domain Ds = Dterms
 ```
 #### Function Definitions
 ```asmeta
-domain D1 = Dterm1 … domain Ds = Dterms
+function F1 [( p11 in d11,…,p1k1 in d1k1 )]= Fterm1 …
+function Ff [( pf1 in df1,…,pfkf in dfkf )]= Ftermf
 ```
 #### Macro Rule Definitions
 ```asmeta
-[ [macro] rule R1 [( x11 in b11,…,x1k1 in b1k1 )] = rule1 …   [macro] rule Rr [( xr1 in br1,…,xrkr in brkr )] = ruler]
+[macro] rule R1 [( x11 in b11,…,x1k1 in b1k1 )] = rule1 …
+[macro] rule Rr [( xr1 in br1,…,xrkr in brkr )] = ruler
 ```
 #### Turbo Rule Definitions
 ```asmeta
-[ turbo rule TR1 [( x11 in b11,…,x1k1 in b1k1 )] [ in b1] = rule1 … turbo rule TRr [( xr1 in br1,…,xrkr in brkr )] [inbx]= ruler ]
+turbo rule TR1 [( x11 in b11,…,x1k1 in b1k1 )] [ in b1] = rule1 …
+turbo rule TRr [( xr1 in br1,…,xrkr in brkr )] [inbx]= ruler
 ```
 #### Invariant Definitions
 ```asmeta
-[ invariant I1 over id11,…,id1s1 : term1 … axiom Iv over idv1,…,idvsv : termv ]
+invariant I1 over id11,…,id1s1 : term1 …
+invariant Iv over idv1,…,idvsv : termv 
 ```
 
 ### Main
