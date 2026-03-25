@@ -3,19 +3,34 @@
 An ASMETA model is structured into four sections: a header, a body, a main rule, and an initialization.
 The schema below shows the concrete notation for each section.
 
-Here is an example of a simple ASMETA model
+Here is an example of a simple counter from 0 to 60. When it reaches 60, it is reset to 0.
 
 ```asmeta
-asm counter
+asm counter 
+
+//Header
 import StandardLibrary 
 
 signature:
+ domain Sixty subsetof Integer
  controlled count: Integer
 
+//Body
 definitions:
- main rule r_Main =
-  count := count + 1
+domain Sixty = {0 : 60}
 
+macro rule r_Increment =
+ count := count + 1
+
+//Main
+main rule r_Main =
+ if count = 60 then
+   count := 0
+ else
+  r_Increment[]
+ endif
+
+//Initialization
 default init s0:
  function count = 0
 ```
