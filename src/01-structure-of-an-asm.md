@@ -1,7 +1,25 @@
 # Structure of an ASMETA model
 
-An ASMETA model is structured into four sections: a header, an initialization, a body, and a main rule.
+An ASMETA model is structured into four sections: a header, a body, a main rule, and an initialization.
 The schema below shows the concrete notation for each section.
+
+Here is an example of a simple ASMETA model
+
+```asmeta
+asm counter
+import StandardLibrary 
+
+signature:
+ controlled count: Integer
+
+definitions:
+ main rule r_Main =
+  count := count + 1
+
+default init s0:
+ function count = 0
+```
+
 
 ## ASMETA declaration
 
@@ -11,7 +29,7 @@ The schema below shows the concrete notation for each section.
 
 [ <span style="color: red;">asyncr</span> ] <span style="color: red;">asm</span> *name*
 
-## HEADER
+## Header
 
 ### IMPORT/EXPORT
  [ <span style="color: red;">`import`</span> *m1* [**(** id11,...,id1h1 **)**] **...**</br>    <span style="color: red;">import</span> mk [**(** idk1,...,idkhk **)**]] </br> [ <span style="color: red;">export</span> id1,...,ide ] or [ <span style="color: red;">export *</span>]
