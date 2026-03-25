@@ -63,8 +63,8 @@ where *name* is the name of the ASMETA model. It must be equal to the name of th
  ### Signature
 ```asmeta
 signature:
- dom_decl1 ... dom_decln
- fun_decl1 ... fun_declm
+ [ dom_decl1 ... dom_decln ]
+ [ fun_decl1 ... fun_declm ]
 ```
 * *dom_decl1,...,dom_decln* are declarations of domains used in the ASM (see section [Domain declarations](02_domain_declaration.md));
 * *fun_decl1,...,fun_declm* are declarations of functions used in the ASM (see section [Function declarations](03_function_declarations.md)).
@@ -76,8 +76,8 @@ definitions:
 ```
 #### Domain Definitions
 ```asmeta
-domain D1 = Dterm1 …
-domain Ds = Dterms
+[ domain D1 = Dterm1 …
+domain Ds = Dterms ]
 ```
 
 * *D1,...,Dd* are names of static concrete domains declared in the signature (see [Header](#headerASM)); 
@@ -85,8 +85,8 @@ domain Ds = Dterms
 
 #### Function Definitions
 ```asmeta
-function F1 [( p11 in d11,…,p1k1 in d1k1 )]= Fterm1 …
-function Ff [( pf1 in df1,…,pfkf in dfkf )]= Ftermf
+[ function F1 [( p11 in d11,…,p1k1 in d1k1 )]= Fterm1 …
+function Ff [( pf1 in df1,…,pfkf in dfkf )]= Ftermf ]
 ```
 
 * *F1,...,Ff* are names of static or derived functions declared in the signature (see [Header](#headerASM));* 
@@ -95,8 +95,8 @@ function Ff [( pf1 in df1,…,pfkf in dfkf )]= Ftermf
   
 #### Macro Rule Definitions
 ```asmeta
-[macro] rule R1 [( x11 in b11,…,x1k1 in b1k1 )] = rule1 …
-[macro] rule Rr [( xr1 in br1,…,xrkr in brkr )] = ruler
+[ [macro] rule R1 [( x11 in b11,…,x1k1 in b1k1 )] = rule1 …
+[macro] rule Rr [( xr1 in br1,…,xrkr in brkr )] = ruler ]
 ```
 * *R1,...,Rr* are names for macro rules;
 * *xij* are variables which specify the formal parameters of the macro rule *Ri*, and *bij* are the domains where *xij* take their value;
@@ -104,8 +104,8 @@ function Ff [( pf1 in df1,…,pfkf in dfkf )]= Ftermf
     
 #### Turbo Rule Definitions
 ```asmeta
-turbo rule TR1 [( x11 in b11,…,x1k1 in b1k1 )] [in b1] = rule1 …
-turbo rule TRr [( xr1 in br1,…,xrkr in brkr )] [in bx]= ruler
+[ turbo rule TR1 [( x11 in b11,…,x1k1 in b1k1 )] [in b1] = rule1 …
+turbo rule TRr [( xr1 in br1,…,xrkr in brkr )] [in bx]= ruler ]
 ```
 
 * *TR1,...,TRr* are names for turbo rules;
@@ -115,8 +115,8 @@ turbo rule TRr [( xr1 in br1,…,xrkr in brkr )] [in bx]= ruler
   
 #### Invariant Definitions
 ```asmeta
-invariant I1 over id11,…,id1s1 : term1 …
-invariant Iv over idv1,…,idvsv : termv 
+[ invariant I1 over id11,…,id1s1 : term1 …
+invariant Iv over idv1,…,idvsv : termv ]
 ```
 * *I1,...,Iv* are names for invariants;
 * *idij* are names of domains, functions (when functions are overloaded, it is necessary to indicate their domain, as in f(d)with f the function name and d the name of the function domain), and rules constrained by the invariants;
