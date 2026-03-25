@@ -159,10 +159,10 @@ invariant Iv over idv1,…,idvsv : termv ]
  
 ### Main
 ```asmeta
-main rule R = rule
+main rule R = rule1
 ```
 * *R* is the name of the main rule; 
-* *rule* is a transition rule (see section [Transition rules](#rules)).
+* *rule1* is a transition rule (see section [Transition rules](#rules)).
 * If the ASM has no main rule, as a default, the ASM starts executing in parallel the agent programs as specified by the agent initialization clauses (see [initializations](#initASM)) in the initial state.
 
 ### Initialization
@@ -278,7 +278,7 @@ domain Sixty = {0 : 60}
 
 macro rule r_Increment =
  count := count + 1
-
+```
 
 ```asmeta
 asm counter 
