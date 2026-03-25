@@ -60,11 +60,46 @@ where *name* is the name of the ASMETA model. It must be equal to the name of th
 
   **export*** denotes that all functions and rules of the ASM can be exported; 
 
- ### SIGNATURE
-<span style="color: red;">`signature:`</span> </br> [ dom_decl1 ... dom_decln ] </br> [ fun_decl1 ... fun_declm ]
+ ### Signature
+```asmeta
+signature:
+ [ dom_decl1 ... dom_decln ]
+ [ fun_decl1 ... fun_declm ]
+```
+* *dom_decl1,...,dom_decln* are declarations of domains used in the ASM (see section [Domain declarations](02_domain_declaration.md));
+* *fun_decl1,...,fun_declm* are declarations of functions used in the ASM (see section [Function declarations](03_function_declarations.md)).
 
-dom_decl1,...,dom_decln are declarations of domains used in the ASM (see section [Domain declarations](02_domain_declaration.md));</br> - fun_decl1,...,fun_declm are declarations of functions used in the ASM (see section [Function declarations](03_function_declarations.md)).
- 
+
+### Body
+```asmeta
+definitions:
+```
+#### Domain Definitions
+```asmeta
+domain D1 = Dterm1 … domain Ds = Dterms
+```
+#### Function Definitions
+```asmeta
+domain D1 = Dterm1 … domain Ds = Dterms
+```
+#### Macro Rule Definitions
+```asmeta
+[ [macro] rule R1 [( x11 in b11,…,x1k1 in b1k1 )] = rule1 …   [macro] rule Rr [( xr1 in br1,…,xrkr in brkr )] = ruler]
+```
+#### Turbo Rule Definitions
+```asmeta
+[ turbo rule TR1 [( x11 in b11,…,x1k1 in b1k1 )] [ in b1] = rule1 … turbo rule TRr [( xr1 in br1,…,xrkr in brkr )] [inbx]= ruler ]
+```
+#### Invariant Definitions
+```asmeta
+[ invariant I1 over id11,…,id1s1 : term1 … axiom Iv over idv1,…,idvsv : termv ]
+```
+
+### Main
+
+### Initialization
+
+
 | **Model element** | **Concrete syntax** |
 | --- | --- |
 | **Asm declaration**  | [ <span style="color: red;">asyncr</span> ] <span style="color: red;">asm</span> *name* |
