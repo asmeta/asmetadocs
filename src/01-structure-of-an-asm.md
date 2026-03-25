@@ -22,7 +22,7 @@ domain Sixty = {0 : 60}
 macro rule r_Increment =
  count := count + 1
 
-//Main
+//Main rule
 main rule r_Main =
  if count = 60 then
    count := 0
