@@ -89,9 +89,9 @@ function F1 [( p11 in d11,…,p1k1 in d1k1 )]= Fterm1 …
 function Ff [( pf1 in df1,…,pfkf in dfkf )]= Ftermf
 ```
 
-* *F1,...,Ff* are names of static or derived functions declared in the signature (see [Header](#headerASM));
-*  *Fterm1,...,Ftermf* are terms (see section [Terms](#terms));
-*  *pij* are variables which specify the formal parameters of the function *Fi*, and *dij* are the domains where *pij* take their value.
+* *F1,...,Ff* are names of static or derived functions declared in the signature (see [Header](#headerASM));* 
+*  *pij* are variables which specify the formal parameters of the function *Fi*, and *dij* are the domains where *pij* take their value;
+*  *Fterm1,...,Ftermf* are terms (see section [Terms](#terms)).
   
 #### Macro Rule Definitions
 ```asmeta
@@ -110,7 +110,7 @@ turbo rule TRr [( xr1 in br1,…,xrkr in brkr )] [in bx]= ruler
 
 * *TR1,...,TRr* are names for turbo rules;
 * *xij* are variables which specify the formal parameters of the turbo rule *TRi*, and *bij* are the domains where *xij* take their value;
-*  *bi* are domains where the return values of turbo rules (with return value) range;
+* *bi* are domains where the return values of turbo rules (with return value) range;
 * *rule1,...,ruler* are transition rules (see section [Transition rules](#rules)).
   
 #### Invariant Definitions
