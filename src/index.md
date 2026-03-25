@@ -58,17 +58,17 @@ In this guide the following conventions are adopted:
 We use the following rules to distinguish among names of *domains*, *functions*, *enumeration elements*, *rules*, *variables*:  
 
 <span style="color: red;">ID_VARIABLE</span>
-a string beginning with the dollar sign "$"; `$x $abc`
+a string beginning with the dollar sign "$"; e.g. `$x $abc`
 
 <span style="color: red;">ID_ENUM</span>
 a string of length greater than or equal
-to two and consisting of upper-case letters only;  `ON OFF RED`
+to two and consisting of upper-case letters only;  e.g. `ON OFF RED`
 
-<span style="color: red;">ID_DOMAIN</span>  a string beginning with an upper-case letter;  `Integer` `X` `SetOfBags` `Person`
+<span style="color: red;">ID_DOMAIN</span>  a string beginning with an upper-case letter;  e.g. `Integer` `X` `SetOfBags` `Person`
 
-<span style="color: red;">ID_RULE</span>  a string beginning with the lower-case letter "r" followed by the underscore symbol "\_";  `r_SetMyPerson` `r_update` 
+<span style="color: red;">ID_RULE</span>  a string beginning with the lower-case letter "r" followed by the underscore symbol "\_";  e.g. `r_SetMyPerson` `r_update` 
 
-<span style="color: red;">ID_FUNCTION</span>  a string beginning with a lower-case letter, but not starting with "r\_";  `plus` `minus` `re`
+<span style="color: red;">ID_FUNCTION</span>  a string beginning with a lower-case letter, but not starting with "r\_";  e.g. `plus` `minus` `re`
 
 <!-- **ID_VARIABLE** a
 string begining with the dollar sign "$";
