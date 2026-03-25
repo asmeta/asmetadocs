@@ -122,7 +122,21 @@ invariant Iv over idv1,…,idvsv : termv ]
 * *idij* are names of domains, functions (when functions are overloaded, it is necessary to indicate their domain, as in f(d)with f the function name and d the name of the function domain), and rules constrained by the invariants;
 * *termi* is a term (see section [Terms](#terms)) representing the boolean-valued expression of the constraint.
 
-  
+#### Temporal Logic Properties
+```asmeta
+[ TLPROP namei over idii,…,idin: termi ]
+```
+where  *TLPROP* is one of:
+```asmeta
+[ CTLSPEC | ctlspec]
+```
+for CTL properties
+
+```asmeta
+[ LTLSPEC | ltlspec]
+```
+for LTL properties
+
 ### Main
 
 ### Initialization
