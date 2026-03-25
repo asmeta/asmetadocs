@@ -310,3 +310,50 @@ default init s0:
 | **Header** | [ **import** m1 [**(** id11,...,id1h1 **)**] **...** **import** mk [**(** idk1,...,idkhk **)**] ] [ **export** id1,...,ide ] or [ **export *** ] **signature** **:** [ dom_decl1 ... dom_decln ] [ fun_decl1 ... fun_declm ] where: - m1,...,mk are the names of the imported modules - idi1,...,idihi are names for domains, functions and rules which are imported from module mi (if they are omitted all the content of the export clause of mi is imported); - id1,...,ide are names for domains, functions and rules which can be exported from the module. **export*** denotes that all functions and rules of the module can be exported; - dom_decl1,...,dom_decln are declarations of domains used in the ASM (see section [Domain declarations](#domdecl)); - fun_decl1,...,fun_declm are declarations of functions used in the ASM (see section [Function declarations](#funDecl)). |
 | **Body** | **definitions :** [ **domain** D1 **=** Dterm1 ... **domain**Dd **=** Dtermd ] [ **function** F1 [**(** p11 **in** d11,...,p1k1 **in** d1k1 **)**]**=** Fterm1 ... **function** Ff [**(** pf1 **in** df1,...,pfkf **in** dfkf **)**]**=** Ftermf ] [ **rule** [**macro**]R1 [**(** x11 **in** b11,...,x1k **in** b1k1 **)**] = rule1 ... **rule** [**macro**] Rr [**(** xr1 **in** br1,...,xrkr **in** brkr **)**] = ruler ] [ **axiom** **over** id11,...,id1s1 : term1 ... **axiom over**idv1,...,idvsv : termv ] where: - D1,...,Dd are names of static concrete domains declared in the signature (see [Header](#headerASM)); - F1,...,Ff are names of static or derived functions declared in the signature (see [Header](#headerASM)); - Dterm1,...,Dtermd and Fterm1,...,Ftermf are terms (see section [Terms](#terms)); - pij are variables which specify the formal parameters of the function Fi, and dij are the domains where pij take their value; - R1,...,Rr are names for transition rules (see section [Transition rules](#rules)); - xij are variables which specify the formal parameters of the rule Ri, and bij are the domains where pij take their value; - rule1,...,ruler are transition rules (see section [Transition rules](#rules)); - idij are names of domains, functions* and rules constrained by the axioms; - termi is a term (see section [Terms](#terms)) representing the boolean-valued expression of the constraint. *When functions are overloaded it is necessary to indicate their domain, as in f(d) with f is the function name and d is the name of the function domain. |
 -->
+
+# ASMETA Standard Libraries
+In ASMETA, libraries are predefined ASM modules that can be imported into your models to reuse common definitions and extend the language with additional functionality.
+They typically contain:
+* domains
+* functions
+* rules
+Using libraries helps avoid redefining standard elements and simplifies model development.
+
+### StandardLibrary.asm
+
+This is the core library and is almost always required.
+It provides:
+* standard domains (e.g., Integer, Boolean)
+* basic operators (arithmetic and logical)
+* commonly used functions
+
+### LTLLibrary.asm and CTLLibrary.asm
+
+These libraries are used for formal verification with the model checker:
+* LTL (Linear Temporal Logic): used to express properties over execution traces
+* CTL (Computation Tree Logic): used to express properties over branching execution paths
+They allow you to specify temporal properties.
+
+### TimeLibrary.asm and TimeLibrarySimple.asm
+
+TimeLibrary introduces the concept of time into ASMETA models.
+It provides:
+* time-related variables
+* functions for handling time
+* support for modeling time-dependent behavior
+
+TimeLibrarySimple is a simplified version of TimeLibrary.
+It offers:
+* basic time-related features
+* easier usage compared to the full TimeLibrary
+* Note: this library is considered experimental.
+
+All the libraries, if necessary, must be imported into the ASMETA model:
+```asmeta
+import StandardLibrary
+import LTLLibrary
+import CTLLibrary
+import TimeLibrary
+import TimeLibrarySimple
+```
+
