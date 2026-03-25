@@ -124,19 +124,39 @@ invariant Iv over idv1,…,idvsv : termv ]
 
 #### Temporal Logic Properties
 ```asmeta
-[ TLPROP namei over idii,…,idin: termi ]
+[ TLPROP name_1 over id1i,…,id1n: term1 ...
+ TLPROP name_i over idii,…,idin: termi ]
 ```
-where  *TLPROP* is one of:
+* *name_1,...,name_i* are names for the properites;
+* *idij* are names of domains, functions (when functions are overloaded, it is necessary to indicate their domain, as in f(d)with f the function name and d the name of the function domain), and rules constrained by the property;
+* *termi* is a term (see section [Terms](#terms)) representing the boolean-valued expression of the constraint.
+* *TLPROP* is one of:
+  * CTL properties:
 ```asmeta
-[ CTLSPEC | ctlspec]
+[ CTLSPEC | ctlspec ]
 ```
-for CTL properties
-
+  * LTL properties:
 ```asmeta
-[ LTLSPEC | ltlspec]
+[ LTLSPEC | ltlspec ]
 ```
-for LTL properties
+  * A justice constraint consists of a formula *f*, which is assumed to be true infinitely often in all the fair paths:
+```asmeta
+[ JUSTICE | justice ]
+```
+  * It indicates a justice constraint as well (in NuSMV it has been kept for backward compatibility):
+```asmeta
+[ FAIRNESS | fairness ]
+```
+  * A compassion constraint consists of a pair of formulas (p,q); if property p is true infinitely often in a fair path, then also formula q has to be true infinitely often in the fair path:
+```asmeta
+[ COMPASSION | compassion ]
+```
+  * Invariants (assumptions about the state):
+```asmeta
+[ INVAR | invar ]
+```
 
+ 
 ### Main
 
 ### Initialization
