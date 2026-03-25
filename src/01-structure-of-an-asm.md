@@ -63,8 +63,8 @@ where *name* is the name of the ASMETA model. It must be equal to the name of th
  ### Signature
 ```asmeta
 signature:
- [ dom_decl1 ... dom_decln ]
- [ fun_decl1 ... fun_declm ]
+ dom_decl1 ... dom_decln
+ fun_decl1 ... fun_declm
 ```
 * *dom_decl1,...,dom_decln* are declarations of domains used in the ASM (see section [Domain declarations](02_domain_declaration.md));
 * *fun_decl1,...,fun_declm* are declarations of functions used in the ASM (see section [Function declarations](03_function_declarations.md)).
