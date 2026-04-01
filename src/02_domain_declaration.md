@@ -32,33 +32,84 @@ Only **Complex**, **Real**, **Integer**,  **Natural**, **String**, **Char**, **B
 ```asmeta
 abstract domain D
 ```
-D is the name  of the type-domain.
+* *D* is the name  of the type-domain.
 
-#### Example
+**Example**
 ```asmeta
 abstract domain Lift
 ```
 
 ### Enumerative Domain
 ```asmeta
-enum domain D = { EL₁\|...\|ELₙ }
+enum domain D = { EL₁|...|ELₙ }
 ```
-* D is the name of the enum type-domain;  
-* EL₁,...,ELₙ  are the elements of the  enumeration.
-
-#### Example
+or 
 ```asmeta
-enum domain Product = {COFFEE | TEA | MILK}
+enum domain D = { EL₁,...,ELₙ }
 ```
-The *Product* domain contains *COFFEE*, *TEA, and *MILK* as elements of the domain.
+
+* *D* is the name of the enum type-domain;  
+* *EL₁,...,ELₙ*  are the elements of the enumeration which must be written in all caps.
+
+**Example**
+```asmeta
+enum domain Sign = {CROSS | NOUGHT}
+enum domain Status = {TURN_USER | TURN_PC}
+```
+The *Sign* domain contains *CROSS* and *NOUGHT* as elements of the domain.
+The *Status* domain contains *TURN_USER* and *TURN_PC* as elements of the domain.
+
+### Concrete Domain
+```asmeta
+[ dynamic ] domain D subsetof td
+```
+* *D* is the name of the concrete domain to declare;  
+* *td* is a type-domain which identifies the structure of the elements of the  declared concrete domain;
+* the keyword **dynamic** denotes that the  declared domain is *dynamic*. If omitted, the domain is considered *static*.
+
+**Example**
+```asmeta
+domain Coord subsetof Integer
+```
+The *Coord* domain contains a subset of elements taken from *Integer* basic domain. The definition of the elements in the *Coord* domain is done in *definitions* section.
+
+### Product Domain
+```asmeta
+Prod ( d₁,d₂,...,dₙ )
+```
+* *d₁,d₂,...,dₙ*  are the domains over which the Cartesian product is defined.
+
+**Example**
+```asmeta
+domain Position subsetof Prod(Coord, Coord)
+```
+The *Position* domain is defined over the Cartesian product of the *Coord* domain. If we consider that the elements of *Coord* are *{1,2,3}*, the elments of domain *Position* are *{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)}*. 
+
+### Sequence Domain
+```asmeta
+Seq ( d )
+```
+* *d*  is the domain over which the sequence domain is defined.
+
+**Example**
+```asmeta
+domain Plan subsetof Seq(Position)
+```
+The *Plan* domain is a finite sequence of elements defined in the *Position* domain.
+
+### Powerset Domain
+```asmeta
+Powerset ( d )
+```
+* *d*  is the domain over which the power set is defined.
+
+
+
+
 
 | **Model element** | **Concrete syntax** |
 | --- | --- |
-| **EnumTD** | **enum** **domain** D **= {** EL1\|...\|ELn **}**  where:  - D is the name of the enum type-domain;   - EL1,...,ELn  are the elements of the  enumeration. |
-| **ProductDomain** | **Prod** **(** d1,d2,...,dn **)**  where d1,...,dn  are the domains over which the cartesian  product is defined. |
-| **SequenceDomain** | **Seq** **(** d **)**  where d  is the domain over which the sequence domain is defined. |
-| **PowersetDomain** | **Powerset** **(** d **)**  where d  is the domain over which the power set is defined. |
 | **BagDomain** | **Bag** **(** d **)**  where d  is the domain over which the bag domain is defined. |
 | **MapDomain** | **Map** **(** d1,d2 **)**  where d1,d2 are the domains over which the map domain is defined. |
-| **ConcreteDomain** | [ **dynamic** ] **domain** D **subsetof** td  where:  - D is the name of the concrete domain to declare;   - td is a type-domain which identifies the structure of the elements of the  declared concrete domain. The keyword **dynamic** denotes that the  declared domain is *dynamic*. If omitted, the domain is considered *static*. |
+
   
