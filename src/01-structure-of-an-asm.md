@@ -41,7 +41,8 @@ In the following, we analyze each component of the ASMETA model in detail.
 ```asmeta
 [asyncr] asm name
 ```
-where *name* is the name of the ASMETA model. It must be equal to the name of the file (as *name.asm*). The keyword **asyncr** specifies if the ASM is an *asynchronous* multi-agent or not. If omitted, the ASMETA model is considered a *synchronous* multi-agent ASM.
+* *name* is the name of the ASMETA model. It must be equal to the name of the file (as *name.asm*). 
+* **asyncr** keyword specifies if the ASM is an *asynchronous* multi-agent or not. If omitted, the ASMETA model is considered a *synchronous* multi-agent ASM.
 
 
 ## Header
