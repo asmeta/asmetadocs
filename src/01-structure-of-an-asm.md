@@ -42,7 +42,7 @@ In the following, we analyze each component of the ASMETA model in detail.
 [asyncr] asm name
 ```
 * *name* is the name of the ASMETA model. It must be equal to the name of the file (as *name.asm*). 
-* **asyncr** keyword specifies if the ASM is an *asynchronous* multi-agent or not. If omitted, the ASMETA model is considered a *synchronous* multi-agent ASM.
+* **asyncr** keyword specifies if the ASM is an *asynchronous* multi-agent or not. If omitted, the ASMETA model is considered a *synchronous* multi-agent.
 
 
 ## Header
@@ -57,9 +57,9 @@ In the following, we analyze each component of the ASMETA model in detail.
 ``` 
 * *m₁,...,mₖ* are the names of the imported modules</br> 
 * *idᵢ₁,...,idᵢₕᵢ* are names for domains, functions, and rules which are imported from module mᵢ (if they are omitted, all the content of the export clause of mi is imported);
-* id₁,...,idₑ are names for domains, functions, and rules which can be exported from the ASM.
+* id₁,...,idₑ are names for domains, functions, and rules which can be exported from the ASMETA model.
 
-  **export*** denotes that all functions and rules of the ASM can be exported; 
+  **export*** denotes that all functions and rules of the ASMETA model can be exported; 
 
  ### Signature
 ```asmeta
@@ -164,7 +164,7 @@ main rule R = rule₁
 ```
 * *R* is the name of the main rule; 
 * *rule₁* is a transition rule (see section [Transition rules](#rules)).
-* If the ASM has no main rule, as a default, the ASM starts executing in parallel the agent programs as specified by the agent initialization clauses (see [initializations](#initASM)) in the initial state.
+* If the ASMETA model has no main rule, as a default, the simulator starts executing in parallel the agent programs as specified by the agent initialization clauses (see [initializations](#initASM)) in the initial state.
 
 ### Initialization
 ```asmeta
@@ -217,8 +217,8 @@ default init Iₓ :
 
 ## ASMETA module
 
-A lightweight notion of *module* is also supported. An ASMETA module is an ASM without a main rule and without initialization. 
-We write a module in the same way as ASMs, with the keyword **asm** replaced by the keyword **module**.
+A lightweight notion of *module* is also supported. An ASMETA module is an ASMETA model without the main rule and the initialization. 
+We write a module in the same way as ASMETA model, with the keyword **asm** replaced by the keyword **module**.
 
 ```asmeta
 module name
@@ -271,7 +271,7 @@ default init s0:
 
 
 ## ASMETA Standard Libraries
-In ASMETA, libraries are predefined ASM modules that can be imported into your models to reuse common definitions and extend the language with additional functionality.
+In ASMETA, libraries are predefined ASMETA modules that can be imported into your models to reuse common definitions and extend the language with additional functionality.
 They typically contain:
 * domains
 * functions
