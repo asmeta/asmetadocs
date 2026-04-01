@@ -55,8 +55,8 @@ where *name* is the name of the ASMETA model. It must be equal to the name of th
 [ export id₁,...,idₑ ]  or   [ export * ]
 ``` 
 * *m₁,...,mₖ* are the names of the imported modules</br> 
-* *idᵢ₁,...,idᵢₕᵢ* are names for domains, functions and rules which are imported from module mi (if they are omitted all the content of the export clause of mi is imported);
-* id₁,...,idₑ are names for domains, functions and rules which can be exported from the ASM.
+* *idᵢ₁,...,idᵢₕᵢ* are names for domains, functions, and rules which are imported from module mᵢ (if they are omitted, all the content of the export clause of mi is imported);
+* id₁,...,idₑ are names for domains, functions, and rules which can be exported from the ASM.
 
   **export*** denotes that all functions and rules of the ASM can be exported; 
 
@@ -90,45 +90,45 @@ function Fₙ [( pₙ₁ in dₙ₁,…,pₙₖₙ in dₙₖₙ )]= Ftermₙ ]
 ```
 
 * *F₁,...,Fₙ* are names of static or derived functions declared in the signature (see [Header](#headerASM));* 
-*  *pᵢj* are variables which specify the formal parameters of the function *Fᵢ*, and *dᵢj* are the domains where *pᵢj* take their value;
+*  *pᵢⱼ* are variables which specify the formal parameters of the function *Fᵢ*, and *dᵢⱼ* are the domains where *pᵢⱼ* take their value;
 *  *Fterm₁,...,Ftermₙ* are terms (see section [Terms](#terms)).
   
 #### Macro Rule Definitions
 ```asmeta
-[ [macro] rule R₁ [( x₁₁ in b₁₁,…,x₁k₁ in b₁k₁ )] = rule₁ …
-[macro] rule Rₙ [( xₙ₁ in bₙ₁,…,xₙkₙ in bₙkₙ )] = ruleₙ ]
+[ [macro] rule R₁ [( x₁₁ in b₁₁,…,x₁ₖ₁ in b₁ₖ₁ )] = rule₁ …
+[macro] rule Rₙ [( xₙ₁ in bₙ₁,…,xₙₖₙ in bₙₖₙ )] = ruleₙ ]
 ```
 * *R₁,...,Rₙ* are names for macro rules;
-* *xᵢj* are variables which specify the formal parameters of the macro rule *Rᵢ*, and *bᵢj* are the domains where *xᵢj* take their value;
+* *xᵢⱼ* are variables which specify the formal parameters of the macro rule *Rᵢ*, and *bᵢⱼ* are the domains where *xᵢⱼ* take their value;
 * *rule₁,...,ruleₙ* are transition rules (see section [Transition rules](#rules));
     
 #### Turbo Rule Definitions
 ```asmeta
-[ turbo rule TR₁ [( x₁₁ in b₁₁,…,x₁k₁ in b₁k₁ )] [in b₁] = rule₁ …
-turbo rule TRₙ [( xₙ₁ in bₙ₁,…,xₙkₙ in bₙkₙ )] [in bx]= ruleₙ ]
+[ turbo rule TR₁ [( x₁₁ in b₁₁,…,x₁ₖ₁ in b₁ₖ₁ )] [in b₁] = rule₁ …
+turbo rule TRₙ [( xₙ₁ in bₙ₁,…,xₙₖₙ in bₙₖₙ )] [in bₓ]= ruleₙ ]
 ```
 
 * *TR₁,...,TRₙ* are names for turbo rules;
-* *xᵢj* are variables which specify the formal parameters of the turbo rule *TRᵢ*, and *bᵢj* are the domains where *xᵢj* take their value;
+* *xᵢⱼ* are variables which specify the formal parameters of the turbo rule *TRᵢ*, and *bᵢⱼ* are the domains where *xᵢⱼ* take their value;
 * *bᵢ* are domains where the return values of turbo rules (with return value) range;
 * *rule₁,...,ruleₙ* are transition rules (see section [Transition rules](#rules)).
   
 #### Invariant Definitions
 ```asmeta
-[ invariant I₁ over id₁₁,…,id₁s₁ : term₁ …
-invariant Iₙ over idₙ₁,…,idₙsₙ : termₙ ]
+[ invariant I₁ over id₁₁,…,id₁ₛ₁ : term₁ …
+invariant Iₙ over idₙ₁,…,idₙₛₙ : termₙ ]
 ```
 * *I₁,...,Iₙ* are names for invariants;
-* *idᵢj* are names of domains, functions (when functions are overloaded, it is necessary to indicate their domain, as in f(d)with f the function name and d the name of the function domain), and rules constrained by the invariants;
+* *idᵢⱼ* are names of domains, functions (when functions are overloaded, it is necessary to indicate their domain, as in f(d)with f the function name and d the name of the function domain), and rules constrained by the invariants;
 * *term₁,...,termₙ* is a term (see section [Terms](#terms)) representing the boolean-valued expression of the constraint.
 
 #### Temporal Logic Properties
 ```asmeta
-[ TLPROP name₁ over id₁ᵢ,…,id₁n: term₁ ...
+[ TLPROP name₁ over id₁ᵢ,…,id₁ₙ: term₁ ...
  TLPROP nameₙ over idₙₙ,…,idₙₘ: termₙ ]
 ```
 * *name₁,...,nameᵢ* are names for the properites;
-* *idₙj* are names of domains, functions (when functions are overloaded, it is necessary to indicate their domain, as in f(d)with f the function name and d the name of the function domain), and rules constrained by the property;
+* *idₙⱼ* are names of domains, functions (when functions are overloaded, it is necessary to indicate their domain, as in *f(d)* with f the function name and d the name of the function domain), and rules constrained by the property;
 * *term₁,...,termₙ* are terms (see section [Terms](#terms)) representing the boolean-valued expression of the constraint.
 * *TLPROP* is one of:
   * CTL properties:
@@ -169,48 +169,48 @@ main rule R = rule₁
 ```asmeta
 [ init I₁ :
       [  domain D₁₁ = Dterm₁₁  ...
-         domain D₁n₁ = Dterm₁n₁
+         domain D₁ₙ₁ = Dterm₁ₙ₁
       ]
-      [  function F₁₁ [(  p₁₁ in d₁₁,...,p₁s₁ in d₁s₁ )]= Fterm₁₁ ...
-         function F₁m₁ [( pm₁₁ in dm₁₁,...,pm₁sm₁ in dm₁sm₁ )]= Fterm₁m₁
+      [  function F₁₁ [(  p₁₁ in d₁₁,...,p₁ₛ₁ in d₁ₛ₁ )]= Fterm₁₁ ...
+         function F₁ₘ₁ [( pₘ₁₁ in dₘ₁₁,...,pₘ₁ₛₘ₁ in dₘ₁ₛₘ₁ )]= Fterm₁ₘ₁
       ]
       [  agent A₁₁ : r₁₁  ...
-         agent A₁u₁ : r₁u₁
+         agent A₁ᵤ₁ : r₁ᵤ₁
        ]
   ...
 ]
-default init Id :
-      [  domain Dd₁ = Dterm₁₁ ...
-         domain Ddnd = Dtermdnd
+default init Iₓ :
+      [  domain Dₓ₁ = Dterm₁₁ ...
+         domain Dₓₙₓ = Dtermₓₙₓ
       ]
-      [  function Fd₁ [( p₁₁ in d₁₁,...,p₁s₁ in d₁s₁ )]= Ftermd₁ ...
-         function Fdmd [( pmd₁ in dmd₁,...,pmdsmd in dmdsmd )]= Ftermdmd
+      [  function Fₓ₁ [( p₁₁ in d₁₁,...,p₁ₛ₁ in d₁ₛ₁ )]= Ftermₓ₁ ...
+         function Fₓₘₓ [( pₘₓ₁ in dₘₓ₁,...,pₘₓₛₘₓ in dₘₓₛₘₓ )]= Ftermₓₘₓ
       ]
       [
-         agent Ad₁ : rd₁ ...
-         agent Adud : rdud
+         agent Aₓ₁ : rₓ₁ ...
+         agent Aₓᵤₓ : rₓᵤₓ
       ]
 [ ...
-   init It :
-       [ domain Dt₁ = Dtermt₁ ...
-         domain Dtnt = Dtermtnt
+   init Iₜ :
+       [ domain Dₜ₁ = Dtermₜ₁ ...
+         domain Dₜₙₜ = Dtermₜₙₜ
        ]
-       [  function Ft₁ [( p₁₁ in d₁₁,...,p₁s₁ in d₁s₁ )]= Ftermt₁ ...
-          function Ftmt[( pmt₁ in dmt₁,...,pmtsmt in dmtsmt )] = Ftermtmt
+       [  function Fₜ₁ [( p₁₁ in d₁₁,...,p₁ₛ₁ in d₁ₛ₁ )]= Ftermₜ₁ ...
+          function Fₜmₜ[( pₘₜ₁ in dₘₜ₁,...,pₘₜₛₘₜ in dₘₜₛₘₜ )] = Ftermₜₘₜ
        ]
-       [  agent At₁ : rt₁ ...
-          agent Atut: rtut
+       [  agent Aₜ₁ : rₜ₁ ...
+          agent Aₜᵤₜ: rₜᵤₜ
        ]
 ]
 ```
 
-* *I₁,...,Id,...,It* are names for the initial states of the ASM;
-* the default initial state *Id* is compulsory; 
-* *Dij* are names of dynamic concrete domains, already declared in the signature (see [Header](#headerASM)) and initialized in the initial state *Ii*;
-* *Fij* are names of dynamic functions, already declared in the signature (see [Header](#headerASM)) and initialized in the initial state *Ii*;
-* *pij* are variable terms which specify the formal parameters of the corresponding function, and *dij* are the domains where *pij* take their value; 
-* *Ftermij* e *Dtermij* are terms (see section [Terms](#terms)) specifying the initial value for the function *Fij* and domain *Dij*;
-* *Aij* and *rtut* are agent domains (concrete sub-domains of the Agent type-domain) and rules assigned as *programs* to the agents, respectively.  If no agent initialization clause is specified, by default, the ASM is assumed to be *single-agent* and the program and the identifier of
+* *I₁,...,Iₓ,...,Iₜ* are names for the initial states of the ASM;
+* the default initial state *Iₓ* is compulsory; 
+* *Dᵢⱼ* are names of dynamic concrete domains, already declared in the signature (see [Header](#headerASM)) and initialized in the initial state *Iᵢ*;
+* *Fᵢⱼ* are names of dynamic functions, already declared in the signature (see [Header](#headerASM)) and initialized in the initial state *Iᵢ*;
+* *pᵢⱼ* are variable terms which specify the formal parameters of the corresponding function, and *dᵢⱼ* are the domains where *pᵢⱼ* take their value; 
+* *Ftermᵢⱼ* e *Dtermᵢⱼ* are terms (see section [Terms](#terms)) specifying the initial value for the function *Fᵢⱼ* and domain *Dᵢⱼ*;
+* *Aᵢⱼ* and *rtut* are agent domains (concrete sub-domains of the Agent type-domain) and rules assigned as *programs* to the agents, respectively.  If no agent initialization clause is specified, by default, the ASM is assumed to be *single-agent* and the program and the identifier of
  the unique agent are respectively the ASM's *main rule* (see [Main rule](#Mainrule)) and the ASM's name.
 
 
