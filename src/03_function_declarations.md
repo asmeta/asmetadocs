@@ -41,6 +41,58 @@ The static function *max* given two integers returns the maximum of them.
  *Local*  dynamic functions can be declared only in the scope of a turbo transition  rule with local state (see section [Transition rules](#rules)).
 
 
+#### Monitored Function
+
+A monitored function represents an input coming from the environment. Its value is not controlled by the system but can change nondeterministically.
+
+
+#### Controlled Function
+
+A controlled function represents a system variable whose value can be modified by the system through rules. Its value evolves during execution.
+
+#### Shared Function
+
+A shared function is used to model interaction between multiple agents, where more than one entity may read or update its value.
+
+#### Output Function
+
+An output function represents values produced by the system and visible to the environment.
+
+**Example**
+```asmeta
+asm AutomaticDoor
+
+import StandardLibrary
+
+signature:
+ controlled doorOpen: Boolean
+ monitored motionDetected: Boolean
+ shared peopleCount: Integer
+ out doorStatus: String
+
+definitions:
+ main rule r_Main =
+  if motionDetected then
+   par
+    doorOpen := true
+    doorStatus := "open"
+    peopleCount := peopleCount + 1
+   endpar
+  else
+    if peopleCount=0 then
+     par
+      doorOpen := false
+      doorStatus := "closed"
+     endpar
+    endif
+  endif
+
+default init s0:
+ function doorOpen = false
+ function peopleCount = 0
+```
+The system opens the door upon motion detection and increments the people count; otherwise, if no motion is detected and the area is empty, the door closes, and the output reflects the door state.
+
 ### Derived Function
 ```asmeta
 derived F : [ D -> ] C
