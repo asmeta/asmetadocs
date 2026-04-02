@@ -40,6 +40,7 @@ endpar
 * *R1,R2,...,Rn* are transition rules executed simultaneously (in parallel). 
 
 **Example**
+This model describes a system in which the value of a controlled counter is updated based on an external input. 
 ```asmeta
 signature:
   monitored userchoice: Integer
@@ -56,16 +57,17 @@ definitions:
 default init s0:
 	function counter = 0
 ```
-This model describes a system in which the value of a controlled counter is updated based on an external input. The monitored function *userchoice* represents a value provided by the environment. At each execution step, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment.
+The monitored function *userchoice* represents a value provided by the environment. At each execution step, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment.
 
 ### ConditionalRule
 ```asmeta
 if G then Rthen [else Relse] endif
 ```  
 * *G* is a term representing a Boolean condition.
-* *Rthen* and *Relse* are transition rules. If *Relse* is omitted, it is assumed `else skip`  as default.
+* *Rthen* and *Relse* are transition rules. If *Relse* is omitted, it is assumed `else skip` as default.
 
 **Example**
+These models describe a system in which the value of a controlled counter is updated based on an external input. 
 ```asmeta
 signature:
   monitored userchoice: Integer
@@ -84,7 +86,7 @@ definitions:
 default init s0:
 	function counter = 0
 ```
-This model describes a system in which the value of a controlled counter is updated based on an external input. The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment.
+The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment.
 
 ```asmeta
 signature:
@@ -109,16 +111,12 @@ definitions:
 default init s0:
 	function counter = 0
 ```
-This model describes a system in which the value of a controlled counter is updated based on an external input. The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment; otherwise the system decreases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed decrement.
+The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment; otherwise the system decreases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed decrement.
 
 ## Reference Card
 
 | **Model element** | **Concrete syntax** |
 | --- | --- |
-| **SkipRule** | **`skip`** |
-| **UpdateRule** | **`l:=t`**    where:  - t is a generic term.      - l can be either a location term f(t1,...,tn) or a location variable.      Note that all the rules, which return a value t, contain an update rule as in result:=t, where result is a reserved 0-ary function  acting as placeholder in which to store the intended return value. |
-| **BlockRule** | **`par`** R1 R2 ... Rn **`endpar`**  where R1,R2,...,Rn are transition rules. |
-| **ConditionalRule** | **if**G **then** Rthen [**else** Relse] **endif**  where:  - G is a term representing a boolean condition.  - Rthen and Relse are transition rules. If  Relse is omitted it  is assumed "**else skip**" as default. |
 | **CaseRule** | **switch** t **case** t1 **:** R1 ... **case** tn **:** Rn [**otherwise** Rn+1] **endswitch**  where:  - t,t1,...,tn are terms.   - R1,...,Rn,Rn+1 are transition rules. If  Rn+1 is omitted it is assumed "**otherwise  skip**" as default. |
 | **LetRule** | **`let(`** v1**=**t1,  ..., vn**=**tn **)** **`in`** Rv1,...,vn **`endlet`**  where:  - v1,...,vn are variables.  - t1,...,tn are terms.   - Rv1,...,vn is a transition rule which  contains occurrences of variables v1,...,vn. |
 | **ForallRule** | **forall** v1 **in** D1, ..., vn **in** Dn **with** Gv1,...,vn **do** Rv1,...,vn  where:  - v1,...,vn are variable.   - D1,...,Dn are terms representing the domains where v1,...,vn take their values.     - Gv1,...,vn is a term representing a boolean condition over v1,...,vn.      - Rv1,...,vn is a transition rule which  contains occurrences of variables v1,...,vn. |
