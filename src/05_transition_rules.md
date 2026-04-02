@@ -1,33 +1,115 @@
 # Transition Rules
 
-In a given state, a
-transition rule of an ASM produces for each variable assignment an update set
-for some dynamic functions of the signature. We classify transition rules in
-two groups: *basic rules* and *turbo rules*. The former are
-simply rules, like the *skip rule* and the *update rule*, while
-the latter are rules, like the *sequence rule* and the *iterate rule*,
-introduced to support practical composition and structuring principles of the ASMs. Other rule schemes are derived from the basic and the
-turbo rules.
+In a given state, a transition rule of an ASM produces for each variable assignment an update set for some dynamic functions of the signature. We classify transition rules in
+two groups: *basic rules* and *turbo rules*. The former are simply rules, like the *skip rule* and the *update rule*, while the latter are rules, like the *sequence rule* and the *iterate rule*, introduced to support practical composition and structuring principles of the ASMs. Other rule schemes are derived from the basic and the turbo rules.
 
-#### SkipRule
-**`skip`** 
-#### UpdateRule
-**`l:=t`**    
+### SkipRule
+```asmeta
+skip
+```
+The skip rule, when executed, does not update any function, and the system state remains unchanged.
+
+### UpdateRule
+```asmeta
+l:=t
+```
 where:  
-- t is a generic term.
-- l can be either a location term f(t1,...,tn) or a location variable (like `$x`).      
-Note that all the rules which return a value t, contain an update rule as in `result:=t`, where `result` is a reserved 0-ary function  acting as placeholder in which to store the intended return value. 
+* *t* is a generic term.
+* *l* can be either a location term *f(t1,...,tn)* or a location variable (like `$x`).      
 
-#### BlockRule
-**`par`** R1 R2 ... Rn **`endpar`**  
-where R1,R2,...,Rn are transition rules. 
+**Example**
+```asmeta
+signature:
+  controlled counter: Integer
 
-#### ConditionalRule
-**`if`** G **`then`** Rthen [**`else`** Relse] **`endif`**  
-where:  
-- G is a term representing a boolean condition.
-- Rthen and Relse are transition rules. If Relse is omitted it  is assumed "**else skip**" as default.
+definitions:
+  main rule r_Main =
+    counter := counter + 1
 
+default init s0:
+	function counter = 0
+```
+The value of *counter* function is incremented by 1 at each step.
+
+### BlockRule
+```asmeta
+par
+  R1 R2 ... Rn
+endpar
+```
+* *R1,R2,...,Rn* are transition rules executed simultaneously (in parallel). 
+
+**Example**
+```asmeta
+signature:
+  monitored userchoice: Integer
+  controlled counter: Integer
+  out message: String
+
+definitions:
+  main rule r_Main = 
+    par
+      counter := counter + userchoice
+      message := "Counter increased by " + toString(userchoice)
+    endpar
+
+default init s0:
+	function counter = 0
+```
+This model describes a system in which the value of a controlled counter is updated based on an external input. The monitored function *userchoice* represents a value provided by the environment. At each execution step, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment.
+
+### ConditionalRule
+```asmeta
+if G then Rthen [else Relse] endif
+```  
+* *G* is a term representing a Boolean condition.
+* *Rthen* and *Relse* are transition rules. If *Relse* is omitted, it is assumed `else skip`  as default.
+
+**Example**
+```asmeta
+signature:
+  monitored userchoice: Integer
+  controlled counter: Integer
+  out message: String
+
+definitions:
+  main rule r_Main = 
+    if counter > 10 then
+      par
+        counter := counter + userchoice
+        message := "Counter increased by " + toString(userchoice)
+      endpar
+    endif
+
+default init s0:
+	function counter = 0
+```
+This model describes a system in which the value of a controlled counter is updated based on an external input. The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment.
+
+```asmeta
+signature:
+  monitored userchoice: Integer
+  controlled counter: Integer
+  out message: String
+
+definitions:
+  main rule r_Main = 
+    if counter > 10 then
+      par
+        counter := counter + userchoice
+        message := "Counter increased by " + toString(userchoice)
+      endpar
+    else
+      par
+        counter := counter - userchoice
+        message := "Counter decreased by " + toString(userchoice)
+      endpar
+    endif
+
+default init s0:
+	function counter = 0
+```
+This model describes a system in which the value of a controlled counter is updated based on an external input. The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment; otherwise the system decreases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed decrement.
 
 ## Reference Card
 
