@@ -131,7 +131,7 @@ Map ( d1,d2 )
 
 **Example**
 ```asmeta
-domain CourseGrade subsetof Map(Course -> Grade)
+domain CourseGrade subsetof Map(Course, Grade)
 ```
 The *CourseGrade* domain contains a map from elements in the *Course* domain to elements in the *Grade* domain.  If we consider that the elements of *Grade* are *{0,1,2,3,4,5}* and elements of *Course* domain are *{MATHS, ARTS, SCIENCE}, the elements of the domain *CourseGrade* can be, for example, *{(MATHS,5), (ARTS,5), (SCIENCE,4)}*.
 
