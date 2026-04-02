@@ -95,7 +95,7 @@ Seq ( d )
 ```asmeta
 domain Plan subsetof Seq(Position)
 ```
-The *Plan* domain is a finite sequence of elements defined in the *Position* domain. If we consider that the elements of *Position* are *{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)}*, the elements of domain *Plan* can be, for example, *{(1,1),(1,2),(2,2)}, {(2,2),(2,3),(3,1),(3,3)}*. 
+The *Plan* domain is a finite sequence of elements defined in the *Position* domain. If we consider that the elements of *Position* are *{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)}*, the elements of domain *Plan* can be, for example, *((1,1),(1,2),(2,2)}, {(2,2),(2,3),(3,1),(3,3))*. 
 
 ### Powerset Domain
 ```asmeta
@@ -133,6 +133,6 @@ Map ( d1,d2 )
 ```asmeta
 domain CourseGrade subsetof Map(Course -> Grade)
 ```
-The *CourseGrade* domain contains a map from elements in the *Course* domain to elements in the *Grade* domain.  If we consider that the elements of *Grade* are *{0,1,2,3,4,5}* and elements of *Course* domain are *{MATHS, ARTS, SCIENCE}, the elements of the domain *CourseGrade* can be, for example, *{(MATHS,5), (ARTS,5),  (SCIENCE,4)}*.
+The *CourseGrade* domain contains a map from elements in the *Course* domain to elements in the *Grade* domain.  If we consider that the elements of *Grade* are *{0,1,2,3,4,5}* and elements of *Course* domain are *{MATHS, ARTS, SCIENCE}, the elements of the domain *CourseGrade* can be, for example, *{(MATHS,5), (ARTS,5), (SCIENCE,4)}*.
 
   
