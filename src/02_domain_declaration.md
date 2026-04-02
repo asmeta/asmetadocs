@@ -54,7 +54,7 @@ enum domain D = { EL₁,...,ELₙ }
 **Example**
 ```asmeta
 enum domain Sign = {CROSS | NOUGHT}
-enum domain Status = {TURN_USER | TURN_PC}
+enum domain Status = {TURN_USER, TURN_PC}
 ```
 The *Sign* domain contains *CROSS* and *NOUGHT* as elements of the domain.
 The *Status* domain contains *TURN_USER* and *TURN_PC* as elements of the domain.
@@ -71,7 +71,7 @@ The *Status* domain contains *TURN_USER* and *TURN_PC* as elements of the domain
 ```asmeta
 domain Coord subsetof Integer
 ```
-The *Coord* domain contains a subset of elements taken from *Integer* basic domain. The definition of the elements in the *Coord* domain is done in *definitions* section.
+The *Coord* domain contains a subset of elements taken from the *Integer* basic domain. The definition of the elements in the *Coord* domain is done in the *definitions* section.
 
 ### Product Domain
 ```asmeta
@@ -89,27 +89,50 @@ The *Position* domain is defined over the Cartesian product of the *Coord* domai
 ```asmeta
 Seq ( d )
 ```
-* *d*  is the domain over which the sequence domain is defined.
+* *d*  is the domain over which the sequence domain is defined. It is an ordered collection of elements belonging to the domain *d*.
 
 **Example**
 ```asmeta
 domain Plan subsetof Seq(Position)
 ```
-The *Plan* domain is a finite sequence of elements defined in the *Position* domain.
+The *Plan* domain is a finite sequence of elements defined in the *Position* domain. If we consider that the elements of *Position* are *{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)}*, the elements of domain *Plan* can be, for example, *{(1,1),(1,2),(2,2)}, {(2,2),(2,3),(3,1),(3,3)}*. 
 
 ### Powerset Domain
 ```asmeta
 Powerset ( d )
 ```
-* *d*  is the domain over which the power set is defined.
+* *d*  is the domain over which the power set domain is defined.  It is the set of all subsets of a given base domain.
+
+**Example**
+```asmeta
+domain SignCombination subsetof Powerset(Sign)
+```
+The *SignCombination* domain contains the set of all subsets of the *Sign* domain. If we consider that the elements of *Sign* are *{CROSS | NOUGHT}*, the elements of the domain *SignCombination* are *{}, {CROSS}, {NOUGHT}, {CROSS, NOUGHT}*.
 
 
+### Bag Domain
+```asmeta
+Bag ( d )
+```
+* *d*  is the domain over which the bag domain is defined.  It is an unordered collection of elements where an element can appear more than once.
+
+**Example**
+```asmeta
+domain ListOfStudentGrade subsetof Bag(Grade)
+```
+The *ListOfStudentGrade* domain contains an unordered collection of elements from the *Grade* domain.  If we consider that the elements of *Grade* are *{0,1,2,3,4,5}*, the elements of the domain *ListOfStudentGrade* can be, for example, *{4,5,4,3,5}*.
 
 
+### Map Domain
+```asmeta
+Map ( d1,d2 )
+```
+* *d1,d2*  are the domains over which the map domain is defined.  It is a structured domain used to represent a mapping from a key domain to a value domain, effectively functioning as a mathematical map or dictionary.
 
-| **Model element** | **Concrete syntax** |
-| --- | --- |
-| **BagDomain** | **Bag** **(** d **)**  where d  is the domain over which the bag domain is defined. |
-| **MapDomain** | **Map** **(** d1,d2 **)**  where d1,d2 are the domains over which the map domain is defined. |
+**Example**
+```asmeta
+domain CourseGrade subsetof Map(Course -> Grade)
+```
+The *CourseGrade* domain contains a map from elements in the *Course* domain to elements in the *Grade* domain.  If we consider that the elements of *Grade* are *{0,1,2,3,4,5}* and elements of *Course* domain are *{MATHS, ARTS, SCIENCE}, the elements of the domain *CourseGrade* can be, for example, *{(MATHS,5), (ARTS,5),  (SCIENCE,4)}*.
 
   
