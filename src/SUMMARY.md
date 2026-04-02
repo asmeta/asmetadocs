@@ -6,5 +6,4 @@
 - [Function declarations](03_function_declarations.md)
 - [Terms](04_terms.md)
 - [Transition rules](05_transition_rules.md)
-- [Reference](reference.md)
 
