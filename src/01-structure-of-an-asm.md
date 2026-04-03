@@ -62,8 +62,8 @@ In the following, we analyze each component of the ASMETA model in detail.
   **export*** denotes that all functions and rules of the ASMETA model can be exported;
 
 > [!TIP]
-> When importing another asmeta file, one can use either the relative or absolute path with or without the `asm` extension.
-> In case the path contains spaces, the use of quotes " to delmit the path is mandatory.
+> When importing another asmeta file, one can use either the relative or absolute path, with or without the `asm` extension.
+> In case the path contains spaces, the use of quotes " to delimit the path is mandatory.
 > **Examples:**
 > ```asmeta
 > import ../myotherfile
@@ -167,7 +167,8 @@ invariant Iₙ over idₙ₁,…,idₙₛₙ : termₙ ]
   ```asmeta
   [ INVAR | invar ]
   ```
-
+> [!IMPORTANT]
+> To write temporal logic properties, it is necessary to import the proper [library](#asmeta-standard-libraries) and use the temporal operators defined in that library.
  
 ### Main
 ```asmeta
