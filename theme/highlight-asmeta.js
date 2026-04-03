@@ -8,7 +8,7 @@ hljs.registerLanguage('asmeta', function (hljs) {
   const KEYWORDS = [
     // ASMETA structure
     'asm', 'signature', 'domains', 'domain', 'functions', 'function',
-    'controlled', 'monitored', 'derived', 'static',
+    'controlled', 'monitored', 'derived', 'static', 'shared', 'local',
 
     // Rules
     'rule', 'if', 'then', 'else', 'endif',
