@@ -62,16 +62,14 @@ In the following, we analyze each component of the ASMETA model in detail.
   **export*** denotes that all functions and rules of the ASMETA model can be exported;
 
 > [!TIP]
-> When importing another asmeta file, one can use either the relative or absolute path with or without extension.
-> In case the pathe contains spaces, the use of quotes " is mandatory.
-> Examples:
+> When importing another asmeta file, one can use either the relative or absolute path with or without the `asm` extension.
+> In case the path contains spaces, the use of quotes " to delmit the path is mandatory.
+> **Examples:**
 > ```asmeta
 > import ../myotherfile
 > import ../libs/library.asm
 > import "C:Users/user/my asms/asm1.asm" 
 > ```
-> sss
-> `import ../myotherfile`{:.asmeta}
 
 
  ### Signature
