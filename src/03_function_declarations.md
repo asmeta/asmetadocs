@@ -97,7 +97,7 @@ The system opens the door upon motion detection and increments the people count;
 ```asmeta
 derived F : [ D -> ] C
 ```
-*derived* functions are computed from other functions; they can contain in their definition both static and dynamic (and derived) functions (but they must contain at least a dynamic function). *dynamic* functions are re-evaluated at each state.
+*derived* functions are computed from other functions; they can contain in their definition both static and dynamic (and derived) functions (but they must contain at least a dynamic function). *dynamic* functions are re-evaluated at each state. They are generally not stored in the current state, unless for efficiency reasons.
 
 **Examples**
 ```asmeta
