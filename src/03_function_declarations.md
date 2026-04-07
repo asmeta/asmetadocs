@@ -35,7 +35,7 @@ The static function *max* given two integers returns the maximum of them.
 
 ### Dynamic Function
 ```asmeta
-[ dynamic ] ( monitored | controlled | shared | out | local ) F : [ D -> ] C
+[ dynamic ] ( monitored | controlled | shared | out ) F : [ D -> ] C
 ```
  A dynamic function *F* is declared specifying its kind (*monitored*, *controlled*, *shared*, or *out*);  optionally, the keyword *dynamic* can also be added as a prefix. 
  *Local*  dynamic functions can be declared only in the scope of a turbo transition  rule with local state (see section [Transition rules](#rules)).
@@ -52,7 +52,9 @@ A controlled function represents a system variable whose value can be modified b
 
 #### Shared Function
 
-A shared function is used to model interaction between multiple agents, where more than one entity may read or update its value.
+A shared function is used to model interaction between multiple agents, where more than one entity may read or update its value. 
+> [!CAUTION]
+> In theory, **shared functions** can be used to describe combinations of internal and external control of functions. They can be directly updatable by the rules of M and by the environment and can be read by both (so that typically a protocol is needed to guarantee consistency of updates). Up to now, the simulator does not support updating of shared functions by the enviroment and by the machine M.
 
 #### Output Function
 
