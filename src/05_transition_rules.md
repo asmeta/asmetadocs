@@ -3,13 +3,13 @@
 In a given state, a transition rule of an ASM produces for each variable assignment an update set for some dynamic functions of the signature. We classify transition rules in
 two groups: *basic rules* and *turbo rules*. The former are simply rules, like the *skip rule* and the *update rule*, while the latter are rules, like the *sequence rule* and the *iterate rule*, introduced to support practical composition and structuring principles of the ASMs. Other rule schemes are derived from the basic and the turbo rules.
 
-### SkipRule
+### Skip Rule
 ```asmeta
 skip
 ```
 The skip rule, when executed, does not update any function, and the system state remains unchanged.
 
-### UpdateRule
+### Update Rule
 ```asmeta
 l:=t
 ```
@@ -31,7 +31,7 @@ default init s0:
 ```
 The value of *counter* function is incremented by 1 at each step.
 
-### BlockRule
+### Block Rule
 ```asmeta
 par
   R1 R2 ... Rn
@@ -59,7 +59,7 @@ default init s0:
 ```
 The monitored function *userchoice* represents a value provided by the environment. At each execution step, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment.
 
-### ConditionalRule
+### Conditional Rule
 ```asmeta
 if G then Rthen [else Relse] endif
 ```  
@@ -113,11 +113,73 @@ default init s0:
 ```
 The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment; otherwise the system decreases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed decrement.
 
+### Case Rule
+```asmeta
+switch t
+	case t₁ : R₁ ...
+	case tₙ : Rₙ
+	[otherwise Rₙ₊₁] endswitch
+```
+* *t,t₁,...,tₙ* are terms
+* *R₁,...,Rₙ,Rₙ₊₁* are transition rules. If *Rₙ₊₁* is omitted, it is assumed "**otherwise  skip**" as default.
+
+**Examples**
+```asmeta
+asm TrafficLight
+
+import StandardLibrary
+
+signature:
+ enum domain Light = {RED | YELLOW | GREEN}
+ controlled currentLight: Light
+
+definitions:
+
+ main rule r_Main =
+  switch currentLight
+    case RED:
+      currentLight := GREEN
+    case GREEN:
+      currentLight := YELLOW
+    case YELLOW:
+      currentLight := RED
+  endswitch
+
+default init s0:
+ function currentLight = RED
+```
+This example models the behavior of a traffic light. Depending on the current light value, the switch rule selects the appropriate transition: from red to green, from green to yellow, and from yellow to red, thus forming a continuous cycle of states.
+
+```asmeta
+asm SimpleMode
+
+import StandardLibrary
+
+signature:
+ enum domain Mode = {AUTO | MANUAL | OFF}
+ controlled systemMode: Mode
+
+definitions:
+
+ main rule r_Main =
+  switch systemMode
+    case AUTO:
+      systemMode := MANUAL
+    case MANUAL:
+      systemMode := OFF
+    otherwise
+      systemMode := AUTO
+  endswitch
+
+default init s0:
+ function systemMode = AUTO
+```
+This example shows how the switch rule selects behavior based on the current mode. If no case matches, the otherwise branch ensures a default transition, keeping the system in a valid state.
+
 ## Reference Card
 
 | **Model element** | **Concrete syntax** |
 | --- | --- |
-| **CaseRule** | **switch** t **case** t1 **:** R1 ... **case** tn **:** Rn [**otherwise** Rn+1] **endswitch**  where:  - t,t1,...,tn are terms.   - R1,...,Rn,Rn+1 are transition rules. If  Rn+1 is omitted it is assumed "**otherwise  skip**" as default. |
 | **LetRule** | **`let(`** v1**=**t1,  ..., vn**=**tn **)** **`in`** Rv1,...,vn **`endlet`**  where:  - v1,...,vn are variables.  - t1,...,tn are terms.   - Rv1,...,vn is a transition rule which  contains occurrences of variables v1,...,vn. |
 | **ForallRule** | **forall** v1 **in** D1, ..., vn **in** Dn **with** Gv1,...,vn **do** Rv1,...,vn  where:  - v1,...,vn are variable.   - D1,...,Dn are terms representing the domains where v1,...,vn take their values.     - Gv1,...,vn is a term representing a boolean condition over v1,...,vn.      - Rv1,...,vn is a transition rule which  contains occurrences of variables v1,...,vn. |
 | **ChooseRule** | **`choose`** v1 **`in`** D1, ..., vn **`in`** Dn [**`with`** Gv1,...,vn] **`do`** Rv1,...,vn [ **`ifnone`** P ]  
