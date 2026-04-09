@@ -197,8 +197,8 @@ signature:
 definitions:
 
  main rule r_Main =
-  let sum = x + y in
-    x := sum
+  let ($sum = x + y) in
+    x := $sum
   endlet
 
 default init s0:
