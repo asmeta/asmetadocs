@@ -148,7 +148,7 @@ definitions:
 default init s0:
  function currentLight = RED
 ```
-This example models the behavior of a traffic light. Depending on the current light value, the switch rule selects the appropriate transition: from red to green, from green to yellow, and from yellow to red, thus forming a continuous cycle of states.
+This example models the behavior of a traffic light. Depending on the current light value, the switch rule selects the appropriate transition: from *RED* to *GREEN*, from *GREEN* to *YELLOW*, and from *YELLOW* to *RED*, thus forming a continuous cycle of states.
 
 ```asmeta
 asm SimpleMode
@@ -175,6 +175,37 @@ default init s0:
  function systemMode = AUTO
 ```
 This example shows how the switch rule selects behavior based on the current mode. If no case matches, the otherwise branch ensures a default transition, keeping the system in a valid state.
+
+### Let Rule
+```asmeta
+let( v₁=t₁,  ..., vₙ=tₙ ) in Rv₁,...,vₙ endlet
+```
+* *v₁,...,vₙ* are variables
+* *t₁,...,tₙ* are terms
+* *Rv₁,...,vₙ* is a transition rule which contains occurrences of variables *v₁,...,vₙ*
+
+**Example**
+```asmeta
+asm LetExample
+
+import StandardLibrary
+
+signature:
+ controlled x: Integer
+ controlled y: Integer
+
+definitions:
+
+ main rule r_Main =
+  let sum = x + y in
+    x := sum
+  endlet
+
+default init s0:
+ function x = 2
+ function y = 3
+```
+This example uses a let rule to define a temporary value *sum* as the *sum* of *x* and *y*. The variable *sum* is local to the rule and is used to update *x*.
 
 ## Reference Card
 
