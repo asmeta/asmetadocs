@@ -205,7 +205,7 @@ default init s0:
  function x = 2
  function y = 3
 ```
-This example uses a let rule to define a temporary value *sum* as the *sum* of *x* and *y*. The variable *sum* is local to the rule and is used to update *x*.
+This example uses a let rule to define a temporary value *sum* as the sum of *x* and *y*. The variable *sum* is local to the rule and is used to update *x*.
 
 ## Reference Card
 
