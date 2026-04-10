@@ -7,14 +7,14 @@ two groups: *basic rules* and *turbo rules*. The former are simply rules, like t
 ```asmeta
 skip
 ```
-The skip rule, when executed, does not update any function, and the system state remains unchanged.
+The *skip* rule, when executed, does not update any function, and the system state remains unchanged.
 
 ### Update Rule
 ```asmeta
 l:=t
 ```
-where:  
-* *t* is a generic term.
+The *update* rule assigns a new value to a function, modifying the system state.
+* *t* is a generic term;
 * *l* can be either a location term *f(t1,...,tn)* or a location variable (like `$x`).      
 
 **Example**
@@ -63,7 +63,8 @@ The monitored function *userchoice* represents a value provided by the environme
 ```asmeta
 if G then Rthen [else Relse] endif
 ```  
-* *G* is a term representing a Boolean condition.
+The *conditional* rule selects which rule to execute based on a boolean condition.
+* *G* is a term representing a Boolean condition;
 * *Rthen* and *Relse* are transition rules. If *Relse* is omitted, it is assumed `else skip` as default.
 
 **Example**
@@ -120,7 +121,8 @@ switch t
 	case tₙ : Rₙ
 	[otherwise Rₙ₊₁] endswitch
 ```
-* *t,t₁,...,tₙ* are terms
+The *case* rule selects one rule among multiple alternatives based on the value of a term *t*.
+* *t,t₁,...,tₙ* are terms;
 * *R₁,...,Rₙ,Rₙ₊₁* are transition rules. If *Rₙ₊₁* is omitted, it is assumed "**otherwise  skip**" as default.
 
 **Examples**
@@ -180,9 +182,10 @@ This example shows how the switch rule selects behavior based on the current mod
 ```asmeta
 let( v₁=t₁,  ..., vₙ=tₙ ) in Rv₁,...,vₙ endlet
 ```
-* *v₁,...,vₙ* are variables
-* *t₁,...,tₙ* are terms
-* *Rv₁,...,vₙ* is a transition rule which contains occurrences of variables *v₁,...,vₙ*
+The *let* rule introduces local variables that can be used within a rule for temporary computations.
+* *v₁,...,vₙ* are variables;
+* *t₁,...,tₙ* are terms;
+* *Rv₁,...,vₙ* is a transition rule which contains occurrences of variables *v₁,...,vₙ*.
 
 **Example**
 ```asmeta
