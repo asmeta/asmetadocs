@@ -212,7 +212,7 @@ This example uses a let rule to define a temporary value *sum* as the sum of *x*
 
 ### Forall Rule
 ```asmeta
-forall v₁ in D₁, ..., vₙ in Dₙ with Gv₁,...,vₙ do Rv₁,...,vₙ
+forall v₁ in D₁, ..., vₙ in Dₙ [with Gv₁,...,vₙ] do Rv₁,...,vₙ
 ```
 The *forall* rule applies in parallel a given rule to all elements of a domain that satisfy a specified condition.
 * *v₁,...,vₙ* are variables;
@@ -238,11 +238,44 @@ definitions:
   forall $i in Index with ($i mod 2 = 0) do
     value($i) := value($i) + 1
   
-
 default init s0:
  function value($i in Index) = 0
 ```
 This example uses a *forall* rule to apply the same update to all even elements of the domain *Index*. For each index *$i*, the value *value($i)* is incremented by one. The rule is executed simultaneously for all elements.
+
+### Choose Rule
+```asmeta
+choose v₁ in D₁, ..., vₙ in Dₙ [with Gv₁,...,vₙ] do Rv₁,...,vₙ [ifnone P]
+```
+The *choose* rule selects one element from a domain that satisfies a given condition and applies a rule to it. The choice is **non-deterministic**.
+* *v₁,...,vₙ* are variables;
+* *D₁,...,Dₙ* are terms representing the domains where *v₁,...,vₙ* take their values;
+* *Gv₁,...,vₙ* is a term representing a boolean condition over *v₁,...,vₙ*;
+* *Rv₁,...,vₙ* is a transition rule which  contains the free variables *v₁,...,vₙ*;
+* *P* is a transition  rule. If  *P* is omitted, it is assumed `ifnone skip` as default. 
+
+**Example**
+```asmeta
+asm LetExample
+
+import StandardLibrary
+
+signature:
+ enum domain Product = {ESPRESSO | CAPPUCCINO | LATTE}
+ controlled available: Product -> Boolean
+ controlled selected: Product
+
+definitions:
+
+ main rule r_Main =
+  choose $p in Product with available($p) do
+    selected := $p
+
+default init s0:
+ function available($p in Product) = true
+ function selected = ESPRESSO
+```
+This example models a coffee vending machine that selects a product among the available ones. The *choose* rule non-deterministically selects one product *$p* from the domain *Product* such that *available($p)* holds, and assigns it to *selected*. Only one product is chosen at each step, even if multiple options are available.
 
 
 
@@ -250,9 +283,6 @@ This example uses a *forall* rule to apply the same update to all even elements 
 
 | **Model element** | **Concrete syntax** |
 | --- | --- |
-| **ForallRule** | **forall** v1 **in** D1, ..., vn **in** Dn **with** Gv1,...,vn **do** Rv1,...,vn  where:  - v1,...,vn are variable.   - D1,...,Dn are terms representing the domains where v1,...,vn take their values.     - Gv1,...,vn is a term representing a boolean condition over v1,...,vn.      - Rv1,...,vn is a transition rule which  contains occurrences of variables v1,...,vn. |
-| **ChooseRule** | **`choose`** v1 **`in`** D1, ..., vn **`in`** Dn [**`with`** Gv1,...,vn] **`do`** Rv1,...,vn [ **`ifnone`** P ]  
-||where:  - v1,...,vn are variables.     - D1,...,Dn are terms representing the  domains where v1,...,vn take their values.   - Gv1,...,vn is a term representing a boolean condition over v1,...,vn.   - Rv1,...,vn is a transition rule which  contains the free variables v1,...,vn.      - P is a transition  rule. If  P is omitted it is assumed "**ifnone** **skip**" as default. |
 | **MacroCallRule** | r**[**t1,...,tn**]**  where:  - r is the name of the macro.   - t1,...,tn are terms representing the arguments.  r **[]**  is used for a macro with no  arguments. |
 | **ExtendRule** | **extend** D **with** v1,...,vn **do** R  where:  - D is the name of the abstract type-domain to be extended.  - v1,...,vn are logical variables which are bound to the  new elements imported in D from the reserve      - R is a transition rule. |
 | **SeqRule** | **seq**  R1 R2 ... Rn **endseq**  where R1,R2,...,Rn are transition rules. |
