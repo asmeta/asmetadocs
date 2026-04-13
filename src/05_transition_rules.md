@@ -223,7 +223,7 @@ The *forall* rule applies in parallel a given rule to all elements of a domain t
 
 **Example**
 ```asmeta
-asm LetExample
+asm ForallExample
 
 import StandardLibrary
 
@@ -256,7 +256,7 @@ The *choose* rule selects one element from a domain that satisfies a given condi
 
 **Example**
 ```asmeta
-asm LetExample
+asm SimpleCoffeeVendingMachine
 
 import StandardLibrary
 
