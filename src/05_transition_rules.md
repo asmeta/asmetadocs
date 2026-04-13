@@ -210,11 +210,46 @@ default init s0:
 ```
 This example uses a let rule to define a temporary value *sum* as the sum of *x* and *y*. The variable *sum* is local to the rule and is used to update *x*.
 
+### Forall Rule
+```asmeta
+forall v₁ in D₁, ..., vₙ in Dₙ with Gv₁,...,vₙ do Rv₁,...,vₙ
+```
+The *forall* rule applies in parallel a given rule to all elements of a domain that satisfy a specified condition.
+* *v₁,...,vₙ* are variables;
+* *D₁,...,Dₙ* are terms representing the domains where *v₁,...,vₙ* take their values;
+* *Gv₁,...,vₙ* is a term representing a boolean condition over *v₁,...,vₙ*;
+* *Rv₁,...,vₙ* is a transition rule which contains occurrences of variables *v₁,...,vₙ*.
+
+
+**Example**
+```asmeta
+asm LetExample
+
+import StandardLibrary
+
+signature:
+ domain Index subsetof Integer
+ controlled value: Index -> Integer
+
+definitions:
+ domain Index = {0:10}
+
+ main rule r_Main =
+  forall $i in Index with ($i mod 2 = 0) do
+    value($i) := value($i) + 1
+  
+
+default init s0:
+ function value($i in Index) = 0
+```
+This example uses a *forall* rule to apply the same update to all even elements of the domain *Index*. For each index *$i*, the value *value($i)* is incremented by one. The rule is executed simultaneously for all elements.
+
+
+
 ## Reference Card
 
 | **Model element** | **Concrete syntax** |
 | --- | --- |
-| **LetRule** | **`let(`** v1**=**t1,  ..., vn**=**tn **)** **`in`** Rv1,...,vn **`endlet`**  where:  - v1,...,vn are variables.  - t1,...,tn are terms.   - Rv1,...,vn is a transition rule which  contains occurrences of variables v1,...,vn. |
 | **ForallRule** | **forall** v1 **in** D1, ..., vn **in** Dn **with** Gv1,...,vn **do** Rv1,...,vn  where:  - v1,...,vn are variable.   - D1,...,Dn are terms representing the domains where v1,...,vn take their values.     - Gv1,...,vn is a term representing a boolean condition over v1,...,vn.      - Rv1,...,vn is a transition rule which  contains occurrences of variables v1,...,vn. |
 | **ChooseRule** | **`choose`** v1 **`in`** D1, ..., vn **`in`** Dn [**`with`** Gv1,...,vn] **`do`** Rv1,...,vn [ **`ifnone`** P ]  
 ||where:  - v1,...,vn are variables.     - D1,...,Dn are terms representing the  domains where v1,...,vn take their values.   - Gv1,...,vn is a term representing a boolean condition over v1,...,vn.   - Rv1,...,vn is a transition rule which  contains the free variables v1,...,vn.      - P is a transition  rule. If  P is omitted it is assumed "**ifnone** **skip**" as default. |
