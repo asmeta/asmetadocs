@@ -19,6 +19,10 @@ The *update* rule assigns a new value to a function, modifying the system state.
 
 **Example**
 ```asmeta
+asm IncreaseByOne
+
+import StandardLibrary
+
 signature:
   controlled counter: Integer
 
@@ -42,6 +46,10 @@ endpar
 **Example**
 This model describes a system in which the value of a controlled counter is updated based on an external input. 
 ```asmeta
+asm IncreaseByUserValue
+
+import StandardLibrary
+
 signature:
   monitored userchoice: Integer
   controlled counter: Integer
@@ -70,6 +78,10 @@ The *conditional* rule selects which rule to execute based on a boolean conditio
 **Example**
 These models describe a system in which the value of a controlled counter is updated based on an external input. 
 ```asmeta
+asm IncreaseCounter
+
+import StandardLibrary
+
 signature:
   monitored userchoice: Integer
   controlled counter: Integer
@@ -90,6 +102,10 @@ default init s0:
 The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment.
 
 ```asmeta
+asm CountSteps
+
+import StandardLibrary
+
 signature:
   monitored userchoice: Integer
   controlled counter: Integer
@@ -278,12 +294,59 @@ default init s0:
 This example models a coffee vending machine that selects a product among the available ones. The *choose* rule non-deterministically selects one product *$p* from the domain *Product* such that *available($p)* holds, and assigns it to *selected*. Only one product is chosen at each step, even if multiple options are available.
 
 
+### Macro Call Rule
+```asmeta
+ r [t₁,...,tₙ]
+```
+The *choose* rule selects one element from a domain that satisfies a given condition and applies a rule to it. The choice is **non-deterministic**.
+* *r* is the name of the macro rule;
+* *t₁,...,tₙ* are terms representing the arguments;
+* r [] is used for a macro with no  arguments. 
+
+**Example**
+```asmeta
+asm CountSteps
+
+import StandardLibrary
+
+signature:
+  monitored userchoice: Integer
+  controlled counter: Integer
+  out message: String
+
+definitions:
+
+ rule r_increase =
+	par
+      counter := counter + userchoice
+      message := "Counter increased by " + toString(userchoice)
+    endpar
+
+ rule r_decrease =
+	par
+      counter := counter - userchoice
+      message := "Counter decreased by " + toString(userchoice)
+    endpar
+
+  main rule r_Main = 
+    if counter > 10 then
+      r_increase[]
+    else
+      r_decrease[]
+    endif
+
+default init s0:
+	function counter = 0
+```
+The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system invokes the *r_increase* rule which increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment; otherwise the system invokes the *r_decrease* rule wich decreases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed decrement. 
+
+
+
 
 ## Reference Card
 
 | **Model element** | **Concrete syntax** |
 | --- | --- |
-| **MacroCallRule** | r**[**t1,...,tn**]**  where:  - r is the name of the macro.   - t1,...,tn are terms representing the arguments.  r **[]**  is used for a macro with no  arguments. |
 | **ExtendRule** | **extend** D **with** v1,...,vn **do** R  where:  - D is the name of the abstract type-domain to be extended.  - v1,...,vn are logical variables which are bound to the  new elements imported in D from the reserve      - R is a transition rule. |
 | **SeqRule** | **seq**  R1 R2 ... Rn **endseq**  where R1,R2,...,Rn are transition rules. |
 | **IterateRule** | **iterate** R **enditerate**  where R is a transition rule. |
