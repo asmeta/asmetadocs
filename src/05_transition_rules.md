@@ -44,6 +44,7 @@ endpar
 * *R1,R2,...,Rn* are transition rules executed simultaneously (in parallel). 
 
 **Example**
+
 This model describes a system in which the value of a controlled counter is updated based on an external input. 
 ```asmeta
 asm IncreaseByUserValue
@@ -76,6 +77,7 @@ The *conditional* rule selects which rule to execute based on a boolean conditio
 * *Rthen* and *Relse* are transition rules. If *Relse* is omitted, it is assumed `else skip` as default.
 
 **Example**
+
 These models describe a system in which the value of a controlled counter is updated based on an external input. 
 ```asmeta
 asm IncreaseCounter
