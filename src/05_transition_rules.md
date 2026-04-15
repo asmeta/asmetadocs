@@ -298,10 +298,10 @@ This example models a coffee vending machine that selects a product among the av
 ```asmeta
  r [t₁,...,tₙ]
 ```
-The *choose* rule selects one element from a domain that satisfies a given condition and applies a rule to it. The choice is **non-deterministic**.
+The *macro call* rule invokes a macro rule, allowing its execution within another rule.
 * *r* is the name of the macro rule;
 * *t₁,...,tₙ* are terms representing the arguments;
-* r [] is used for a macro with no  arguments. 
+* *r []* is used for a macro with no  arguments. 
 
 **Example**
 ```asmeta
@@ -341,15 +341,119 @@ default init s0:
 The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system invokes the *r_increase* rule which increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment; otherwise the system invokes the *r_decrease* rule wich decreases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed decrement. 
 
 
+### Extend Rule
+```asmeta
+ extend D with v₁,...,vₙ do R
+```
+The *extend* rule adds a new element to a dynamic domain and applies a rule to it.
+* *D* is the name of the abstract type-domain to be extended;
+* *v₁,...,vₙ* are logical variables which are bound to the  new elements imported in *D* from the reserve;
+* *R* is a transition rule. 
+
+**Example**
+```asmeta
+asm CountSteps
+
+import StandardLibrary
+
+signature:
+  monitored userchoice: Integer
+  controlled counter: Integer
+  out message: String
+
+definitions:
+
+ rule r_increase =
+	par
+      counter := counter + userchoice
+      message := "Counter increased by " + toString(userchoice)
+    endpar
+
+ rule r_decrease =
+	par
+      counter := counter - userchoice
+      message := "Counter decreased by " + toString(userchoice)
+    endpar
+
+  main rule r_Main = 
+    if counter > 10 then
+      r_increase[]
+    else
+      r_decrease[]
+    endif
+
+default init s0:
+	function counter = 0
+```
+The monitored function *userchoice* represents a value provided by the environment. At each execution step, if the *userchoice* function is greater than 10, the system invokes the *r_increase* rule which increases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed increment; otherwise the system invokes the *r_decrease* rule wich decreases the controlled function *counter* by the value of *userchoice* and updates the output function *message* to reflect the performed decrement. 
+
+
+### Seq Rule
+```asmeta
+ seq  R₁ ... Rₙ endseq
+```
+The *seq* rule is used to define a sequence of rule executions, ensuring that updates are applied in order.
+* *R₁ ... Rₙ* are transition rules. 
+
+**Example**
+```asmeta
+asm DoBySeq
+
+import StandardLibrary
+
+signature:
+ controlled x: Integer
+
+definitions:
+
+ main rule r_Main =
+  seq
+    x := x + 1
+    x := x * 2
+  endseq
+
+default init s0:
+ function x = 2
+```
+*x* is incremented by 1, and then the result is multiplied by 2. Each update uses the result of the previous one.
+
+<!--
+### Iterate Rule
+```asmeta
+ iterate R enditerate
+```
+The *iterate* rule repeatedly executes a rule until no further updates are possible.
+* *R* is a transition rule. 
+
+**Example**
+```asmeta
+asm DoBySeq
+
+import StandardLibrary
+
+signature:
+ controlled x: Integer
+
+definitions:
+
+ main rule r_Main =
+    iterate 
+    	if (x<10) then x:= x+1 endif
+    enditerate
+
+
+default init s0:
+ function x = 2
+```
+*x* is incremented by 1, until it is lower than 10. Each update uses the result of the previous one.
+-->
+
 
 
 ## Reference Card
 
 | **Model element** | **Concrete syntax** |
 | --- | --- |
-| **ExtendRule** | **extend** D **with** v1,...,vn **do** R  where:  - D is the name of the abstract type-domain to be extended.  - v1,...,vn are logical variables which are bound to the  new elements imported in D from the reserve      - R is a transition rule. |
-| **SeqRule** | **seq**  R1 R2 ... Rn **endseq**  where R1,R2,...,Rn are transition rules. |
-| **IterateRule** | **iterate** R **enditerate**  where R is a transition rule. |
 | **IterativeWhileRule** | **while** G **do** R      where:  - G is a term representing a boolean condition.    - R is a transition rule. |
 | **TurboCallRule** | **`r(t1,...,tn)`**  where:  - r is the name of the called transition rule.   - t1,...,tn are terms representing the arguments.  r**(****)** is used to call a rule with no  arguments. |
 | **RecursiveWhileRule** | **recwhile**  G**do** R  where G is a term representing a boolean condition and R is a transition rule. |
