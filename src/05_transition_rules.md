@@ -419,13 +419,17 @@ default init s0:
 ```
 *x* is incremented by 1, and then the result is multiplied by 2. Each update uses the result of the previous one.
 
-<!--
+
 ### Iterate Rule
 ```asmeta
  iterate R enditerate
 ```
 The *iterate* rule repeatedly executes a rule until no further updates are possible.
 * *R* is a transition rule. 
+
+> [!CAUTION]
+> Up to now, the simulator does not support the *iterate* rule.
+
 
 **Example**
 ```asmeta
@@ -448,7 +452,40 @@ default init s0:
  function x = 2
 ```
 *x* is incremented by 1, until it is lower than 10. Each update uses the result of the previous one.
--->
+
+
+### Iterative-While Rule
+```asmeta
+ while G do R 
+```
+The *while* rule repeatedly executes a rule until the condition *G* is true.
+* *G* is a term representing a boolean condition;
+* *R* is a transition rule. 
+
+> [!TIP]
+> An *iterative-while* rule is a derived rule since it can be de ned in terms of a turbo iterate rule as follows: `while G do R ≡ iterate if G then R endif enditerate`.
+
+
+**Example**
+```asmeta
+asm DoBySeq
+
+import StandardLibrary
+
+signature:
+ controlled x: Integer
+
+definitions:
+
+ main rule r_Main =
+    while (x<10) do
+      x:= x+1
+
+
+default init s0:
+ function x = 2
+```
+*x* is incremented by 1, until it is lower than 10. Each update uses the result of the previous one.
 
 
 
