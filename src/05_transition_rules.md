@@ -488,16 +488,96 @@ default init s0:
 *x* is incremented by 1, until it is lower than 10. Each update uses the result of the previous one.
 
 
+### Turbo Call Rule
+```asmeta
+  r (t₁,...,tₙ)
+```
+A *turbo call* rule invokes a rule in a single step, executing all its internal computations instantaneously.
+* *r* is the name of the called transition rule;
+* *t₁,...,tₙ* are terms representing the arguments;
+* *r ()* is used to call a rule with no  arguments.
 
-## Reference Card
+**Example**
+```asmeta
+asm turboReturnRule
 
-| **Model element** | **Concrete syntax** |
-| --- | --- |
-| **IterativeWhileRule** | **while** G **do** R      where:  - G is a term representing a boolean condition.    - R is a transition rule. |
-| **TurboCallRule** | **`r(t1,...,tn)`**  where:  - r is the name of the called transition rule.   - t1,...,tn are terms representing the arguments.  r**(****)** is used to call a rule with no  arguments. |
-| **RecursiveWhileRule** | **recwhile**  G**do** R  where G is a term representing a boolean condition and R is a transition rule. |
-| **TurboLocalStateRule** | [**dynamic**] **local** f1 **:**[D1 **->**]C1 **[** Init1 **]**  ...  [**dynamic**] **local** fk **:**[Dk **->**]Ck **[** Initk **]**  body  where:  - Init1,...,Initkand body  are transition rules.      - [**dynamic**] **local** fi **:**[Di **->**]Ci are declarations of local dynamic functions (see [DynamicFunction](#FDDynamFun) declaration). |
-| **TryCatchRule** | **try** P **catch** l1,...,ln Q  where:   - P and Q are transition rules.      - l1,...,ln are either location terms or location  variables. |
-| **TurboReturnRule** |  **`l<-r(t1,...,tn)`**  where:  - l is either a location term or a location variable.   - r(t1,...,tn) is a TurboCall rule. |
-| **TermAsRule** | v  where v is either a rule variable or a  function term. This rule works as a form of wrapper to allow the use of  either a function term or a variable term where a rule is expected. |
+import StandardLibrary
+
+signature:
+	dynamic controlled value: Integer
+	dynamic monitored inputA: Integer
+	dynamic monitored inputB: Integer
+	
+definitions:
+
+	turbo rule r_sum($x in Integer, $y in Integer) in Integer =
+		result := $x + $y
+			
+	main rule r_Main =
+		r_sum(inputA, inputB)
+
+default init s0:
+	function value = 0
+```
+The monitored functions *inputA* and *inputB* represent values provided by the environment. The turbo rule *r_sum* takes these inputs as parameters, computes their sum, and returns the result in a single atomic step. The main rule assigns the returned value to the controlled function *value*.
+
+
+### Turbo Return Rule
+```asmeta
+   l<-r(t₁,...,tₙ)
+```
+A *turbo return* rule is a turbo rule that computes and returns a value as the result of its execution.
+* *l* is either a location term or a location variable;
+* *r(t₁,...,tₙ)* is a Turbo Call rule.
+
+**Example**
+```asmeta
+asm turboReturnRule
+
+import StandardLibrary
+
+signature:
+	dynamic controlled value: Integer
+	dynamic monitored inputA: Integer
+	dynamic monitored inputB: Integer
+	
+definitions:
+
+	turbo rule r_sum($x in Integer, $y in Integer) in Integer =
+		result := $x + $y
+			
+	main rule r_Main =
+		value <- r_sum(inputA, inputB)
+
+default init s0:
+	function value = 0
+```
+The monitored functions *inputA* and *inputB* represent values provided by the environment. The turbo rule *r_sum* takes these inputs as parameters, computes their sum, and returns the result in a single atomic step. The main rule invokes the turbo rule *r_sum*.
+
+### Turbo Local State Rule
+```asmeta
+   [dynamic] local f₁:[D₁ ->]C₁ [ Init₁ ] ...
+   [dynamic] local fₙ :[Dₙ ->]Cₙ [ Initₙ ]
+	body
+```
+A *turbo local state* rule defines a turbo rule that uses local state variables during its execution.
+* *Init₁,...,Initₙ* and *body* are transition rules;
+* *[dynamic] local f₁:[D₁ ->]C₁* are declarations of local dynamic functions (see [DynamicFunction](#FDDynamFun) declaration).
+
+### Try-Catch Rule
+```asmeta
+   try P catch l₁,...,lₙ Q
+```
+The *try-catch* rule executes a rule and handles possible failures by specifying an alternative rule.
+* *P* and *Q* are transition rules;
+* *l₁,...,lₙ* are either location terms or location variables.
+
+### Term As Rule
+```asmeta
+   v
+```
+A *term as rule* allows the use of  either a function term or a variable term where a rule is expected.
+* *v* is either a rule variable or a  function term.
+
+
 
