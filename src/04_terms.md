@@ -24,7 +24,7 @@ as unsigned numbers plus the  suffix "n". E.g.: 3n, 0n, etc...
 as char literals delimited by single  quotes. E.g.: 'a', '5',  etc...
 
 #### String Terms
-as a string of literals delimited  of double quotes: E.g.: "hello", "1256", etc...
+as a string of literals delimited of double quotes: E.g.: "hello", "1256", etc...
 
 #### Boolean Terms
 **true**,  **false**
@@ -33,22 +33,20 @@ as a string of literals delimited  of double quotes: E.g.: "hello", "1256", etc.
 **undef**
 
 #### Enum Term
-*e* 
-where e is an element of an enumeration  type-domain.
+is an element of an enumeration  type-domain.
 
 ### Variable Term
-*v*  
-where v is a variable. The variable can  be a *location variable* (which is replaced by a *location term )*, or a *rule  variable* (which is replaced by a *rule term* ), or a *logical  variable* (which is replaced by a term that is neither a location term  nor a rule term).
+The variable *v* can  be a *location variable* (which is replaced by a *location term*), or a *rule  variable* (which is replaced by a *rule term* ), or a *logical  variable* (which is replaced by a term that is neither a location term  nor a rule term).
 
 ### Function Term
 ```asmeta
 [id.]f[(t₁,...tₙ)]
 ```
-* *f* is the function to apply and *(t₁,...tₙ)* is a tuple term representing the actual parameters of the function f. If f is a 0-ary  function, there is no tuple term.     
-* *id* is the agent that applies the function f. Within the rules of the ASM, each agent can  identify itself by means of a special reserved 0-ary function *self:Agent*, which is interpreted by each agent *a* as *a*. For a function *f:X->Y*, for example, the expression *f(self,x)* or *self.f(x)* denotes the private version *f(x)* belonging  to agent *self*. When it is clear from the contex who is  denoted by *self*, notationally *self* is omitted.
+* *f* is the function to apply and *(t₁,...tₙ)* is a tuple term representing the actual parameters of the function *f*. If *f* is a 0-ary  function, there is no tuple term.     
+* *id* is the agent that applies the function *f*. Within the rules of the ASM, each agent can  identify itself by means of a special reserved 0-ary function *self:Agent*, which is interpreted by each agent *a* as *a*. For a function *f:X->Y*, for example, the expression *f(self,x)* or *self.f(x)* denotes the private version *f(x)* belonging  to agent *self*. When it is clear from the context who is  denoted by *self*, notationally *self* is omitted.
 
-* ### Location Term
-* A specialized function term where *f* is a dynamic  function fixed by the ASM signature.
+### Location Term
+A specialized function term where *f* is a dynamic  function fixed by the ASM signature.
 
 ## Extended Terms
 
@@ -61,16 +59,28 @@ where v is a variable. The variable can  be a *location variable* (which is repl
 * *t₁,...tₙ* are terms of the same nature.
 * **[ ]** denotes  the empty sequence.  A  finite sequence over numbers (real, integer and natural)  can be also defined by means of an **interval notation**, as in   **[** tlow  : tupp [ ,s ] **]**
   * tlow and tuppare numbers representing, respectively,  the lower and the upper elements of the sequence.      
-  * s is a positive number representing the step used to take the elements.  If s is omitted it is assumed "**s=1**" by default.
+  * *s* is a positive number representing the step used to take the elements.  If *s* is omitted it is assumed "**s=1**" by default.
 
 ### SequenceCT
-**[**v1 **in** S1,...,vn **in** Sn [**\|**Gv1,...,vn ] : tv1,...,vn**]**  where:      - v1,...,vn are variables.     - tv1,...,vn is the main term containing free  occurrences of v1,...,vn.     - S1,...,Sn are terms representing the  sequences where the variables v1,...,vn take their value.      - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**true**"  as default condition.
+**[**v₁ **in** S₁,...,Sₙ **in** Sₙ [**\|**Gv₁,...,vₙ ] : tv₁,...,vₙ**]**  
+* *v₁,...,vₙ* are variables.     
+* *tv₁,...,vₙ* is the main term containing free  occurrences of *v₁,...,vₙ*.
+* *S₁,...,Sₙ* are terms representing the  sequences where the variables *v₁,...,vₙ* take their value.
+* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of *v₁,...,vₙ*. If  *Gv₁,...,vₙ* is omitted it is assumed "**true**"  as default condition.
 
 ### Set Term
-**{** t₁,...tₙ **}**  where t₁,...tₙ are terms of the same nature.   **{ }**  denotes the empty set.  A  finite set over numbers (real, integer and natural)  can be also defined by means of an **interval notation**, as in   **[** tlow  : tupp [ ,s ] **]**  where:  - tlow and tupp are real number representing,  respectively, the lower and the upper elements of the set   - s is a positive number representing the step used to take the elements.  If s is omitted it is assumed "**s=1**" by default. 
+**{** t₁,...tₙ **}**  
+* *t₁,...tₙ* are terms of the same nature.
+* **{ }**  denotes the empty set.  A  finite set over numbers (real, integer and natural)  can be also defined by means of an **interval notation**, as in   **[** tₘᵢₙ  : tₘₐₓ [ ,s ] **]**  
+ * *tₘᵢₙ* and tₘₐₓ are real number representing,  respectively, the lower and the upper elements of the set  
+ * *s* is a positive number representing the step used to take the elements.  If s is omitted it is assumed "**s=1**" by default. 
 
 ### SetCT
-**{**v1 **in** D1,...,vn **in** Dn   [**\|**Gv1,...,vn ] : tv1,...,vn**}**  where:     - v1,...,vn are variables.     - tv1,...,vn is the main term containing free  occurrences of v1,...,vn.     - D1,...,Dn are terms representing the  domains where the variables v1,...,vn take their value.      - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**true**"  as default condition.
+**{**v₁ **in** D₁,...,Dₙ **in** Dₙ   [**\|**Gv₁,...,vₙ ] : tv₁,...,vₙ**}**  
+* *v₁,...,vₙ* are variables.     
+* *v₁,...,vₙ* is the main term containing free  occurrences of *v₁,...,vₙ*.
+* *D₁,...,Dₙ* are terms representing the domains where the variables *v₁,...,vₙ* take their value.      
+* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of *v₁,...,vₙ*. If  *Gv₁,...,vₙ* is omitted it is assumed "**true**"  as default condition.
 
 ### Bag Term
 *<** t₁,...tₙ **>**  where t₁,...tₙ are terms of the same nature.   **< >** denotes the empty bag.     The notation for a bag of bags needs at least one space before to list the  bag elements as in **<****<****...** **>,****...****,<****...****>>**.  A  finite bag over numbers (real, integer and natural)  can be also defined by means of an **interval notation**, as in   **[** tlow  : tupp [ ,s ] **]**  where:     - tlow and tupp are real number representing,  respectively, the lower and the upper elements of the bag.      - s is a positivel number representing the step used to take the elements.  If s is omitted it is assumed "**s=1**" by default.
