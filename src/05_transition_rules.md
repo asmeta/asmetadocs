@@ -137,7 +137,8 @@ The monitored function *userchoice* represents a value provided by the environme
 switch t
 	case t₁ : R₁ ...
 	case tₙ : Rₙ
-	[otherwise Rₙ₊₁] endswitch
+	[otherwise Rₙ₊₁]
+endswitch
 ```
 The *case* rule selects one rule among multiple alternatives based on the value of a term *t*.
 * *t,t₁,...,tₙ* are terms;
