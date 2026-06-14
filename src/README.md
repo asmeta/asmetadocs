@@ -1,24 +1,7 @@
-# Welcome 👋
+# Welcome to the **AsmetaBook**
 
-This is an example mdBook documentation project.
+In this book you will find all the documentation for the asmeta toolset
 
-It supports:
-- Code highlighting
-- Navigation sidebar
-- GitHub integration
+**how to install**
 
-## Example `asmeta` code
-
-```asmeta
-module Example {
-  import "std"
-
-  rule init -> state {
-    let x = 10
-    if x > 5 then
-      print("x is big")
-    else
-      print("x is small")
-  }
-}
-```
+**AsmetaL reference guide**
