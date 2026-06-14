@@ -4,7 +4,7 @@
 
 # User guide
 
-- [Installation](guide/installation.md)
+- [Installation](user-guide/how-to-install.md)
 
 # AsmetaL — Reference Guide
 
