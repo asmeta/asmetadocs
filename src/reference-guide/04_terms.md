@@ -104,10 +104,10 @@ A specialized function term where *f* is a dynamic  function fixed by the ASM si
 **let (** v**1=**t₁,  ..., v**n****=**tₙ **)** **in** tv1,...,vn **endlet**  where:  - v1,...,vn are variables.  - t₁,...tₙ are terms.   - tv1,...,vn is a term containing free  occurrences of v1,...,vn.
 
 ### Exists Term
-**( exists** v**1** **in** D1,...,vn **in** Dn[ **with** Gv1,...,vn ]**)**  where: 
-* v1,...,vn are variables.
-* D1,...,Dn are terms representing the domains where v1,...,vn take their value.
-* Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**with  true**" as default condition.
+**( exists** v₁ **in** D₁,...,vₙ **in** Dₙ [**with** Gv₁,...,vₙ ]**)**  where: 
+* v₁,...,vₙ are *logical* variables.
+* D₁,...,Dₙ are terms representing the domains where v₁,...,vₙ take their value.
+* Gv₁,...,vₙ is a term representing a boolean condition containing occurrences of v₁,...,vₙ. If  Gv₁,...,vₙ is omitted it is assumed "**with  true**" as default condition.
 ```asmeta
 if (exists $p1 in Process with status($p1) = RUNNABLE) then phase := EVALUATION endif
 ```
