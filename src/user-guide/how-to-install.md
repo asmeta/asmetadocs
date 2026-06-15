@@ -1,13 +1,13 @@
-# how to install the asmeta toolset
+# How to install the asmeta toolset
 
-The asmeta is a frameworks with different tools (see [toolset]([../toolset/](https://asmeta.github.io/toolset/) for the list of tools).
+The asmeta is a framework with different tools (see [asmeta toolset](https://asmeta.github.io/toolset/) for the list of tools).
 Some tools are provided both as eclipse plugins and standalone jars that can be executed at command line. 
 Some are only available as jar files (see the individual pages).
 Here we present on how to install asmeta with eclipse. 
 
 ## Installing ASMETA in eclipse
 
-To install the asmeta plugins, please use the update site:
+If you already eclipse working on your machine, you can install the asmeta plugins, by using the following update site:
 
 **https://raw.githubusercontent.com/asmeta/asmeta_update_site/master**
 
@@ -21,11 +21,14 @@ https://raw.githubusercontent.com/asmeta/asmeta_update_site/master for the updat
 5. Select the desired tool(s).
 6. Follow the steps in the installation wizard.
 
+> [!WARNING]
+> If you want to formally prove propeties with AsmetaSMV, you need to install NuSMV separately (see https://nusmv.fbk.eu/)
+
 ## Downloading an eclipse with asmeta
 
-On the github pages, you can find a zip with asmeta already installed that we use to test that asmeta works. 
+We provide also a zip with everything you need to try asmeta. The zip contains eclipse with asmeta already installed (and also NuSMV). 
 
-Look at <https://github.com/asmeta/asmeta>.
+Look at <https://github.com/asmeta/asmeta#eclispe-with-asmeta-ready-to-use>
 
 You can find an updated version for windows and a working version for MacOS and linux which must be updated using the update site.
 
