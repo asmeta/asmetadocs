@@ -75,7 +75,7 @@ A specialized function term where *f* is a dynamic  function fixed by the ASM si
  * *tₘᵢₙ* and tₘₐₓ are real number representing,  respectively, the lower and the upper elements of the set  
  * *s* is a positive number representing the step used to take the elements.  If s is omitted it is assumed "**s=1**" by default. 
 
-### SetCT
+### Set Comprehension Term
 **{**v₁ **in** D₁,...,Dₙ **in** Dₙ   [**\|**Gv₁,...,vₙ ] : tv₁,...,vₙ**}**  
 * *v₁,...,vₙ* are variables.     
 * *v₁,...,vₙ* is the main term containing free  occurrences of *v₁,...,vₙ*.
@@ -103,11 +103,17 @@ A specialized function term where *f* is a dynamic  function fixed by the ASM si
 ### Let Term
 **let (** v**1=**t₁,  ..., v**n****=**tₙ **)** **in** tv1,...,vn **endlet**  where:  - v1,...,vn are variables.  - t₁,...tₙ are terms.   - tv1,...,vn is a term containing free  occurrences of v1,...,vn.
 
-### Exist Term
-**( exist** v**1** **in** D1,...,vn **in** Dn[ **with** Gv1,...,vn ]**)**  where:  - v1,...,vn are variables.  - D1,...,Dn are terms representing the domains where v1,...,vn take their value.  - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**with  true**" as default condition.
+### Exists Term
+**( exists** v**1** **in** D1,...,vn **in** Dn[ **with** Gv1,...,vn ]**)**  where: 
+* v1,...,vn are variables.
+* D1,...,Dn are terms representing the domains where v1,...,vn take their value.
+* Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**with  true**" as default condition.
+```asmeta
+if (exists $p1 in Process with status($p1) = RUNNABLE) then phase := EVALUATION endif
+```
 
-### Exist Unique Term
-**( exist unique** v**1** **in** D1,...,vn **in** Dn[ **with** Gv1,...,vn ]**)**  where:  - v1,...,vn are variables.  - D1,...,Dn are terms representing the domains where v1,...,vn take their value.     - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**with  true**" as default condition.
+### Exists Unique Term
+**( exists unique** v**1** **in** D1,...,vn **in** Dn[ **with** Gv1,...,vn ]**)**  where:  - v1,...,vn are variables.  - D1,...,Dn are terms representing the domains where v1,...,vn take their value.     - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**with  true**" as default condition.
 
 ### Forall Term 
 **( forall** v**1** **in** D1,...,vn **in** Dn[ **with** Gv1,...,vn ]**)**  where:  - v1,...,vn are variables.  - D1,...,Dn are terms representing the domains where v1,...,vn take their value.     - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**with  true**" as default condition.
