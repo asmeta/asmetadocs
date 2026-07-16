@@ -2,6 +2,6 @@
 
 In this book you will find all the documentation for the asmeta toolset
 
-**how to install**
+**[How to install](how-to-install.md)**
 
-**AsmetaL reference guide**
+**[AsmetaL reference guide](reference-guide/index.md)**
