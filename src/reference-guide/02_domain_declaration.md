@@ -125,9 +125,9 @@ The *ListOfStudentGrade* domain contains an unordered collection of elements fro
 
 ### Map Domain
 ```asmeta
-Map ( d1,d2 )
+Map ( d₁,d₂ )
 ```
-* *d1,d2*  are the domains over which the map domain is defined.  It is a structured domain used to represent a mapping from a key domain to a value domain, effectively functioning as a mathematical map or dictionary.
+* *d₁,d₂*  are the domains over which the map domain is defined.  It is a structured domain used to represent a mapping from a key domain to a value domain, effectively functioning as a mathematical map or dictionary.
 
 **Example**
 ```asmeta
