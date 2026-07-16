@@ -61,7 +61,8 @@ A specialized function term where *f* is a dynamic  function fixed by the ASM si
 [ t₁,...tₙ ]
 ```
 * *t₁,...tₙ* are terms of the same nature.
-* **[ ]** denotes  the empty sequence.  A  finite sequence over numbers (real, integer and natural)  can be also defined by means of an **interval notation**, as in   **[** tlow  : tupp [ ,s ] **]**
+* **[ ]** denotes  the empty sequence.
+A  finite sequence over numbers (real, integer and natural)  can be also defined by means of an **interval notation**, as in   **[** tlow  : tupp [ ,s ] **]**
 * tlow and tuppare numbers representing, respectively,  the lower and the upper elements of the sequence.      
 * *s* is a positive number representing the step used to take the elements.  If *s* is omitted it is assumed "**s=1**" by default.
 
@@ -141,10 +142,10 @@ if G then tthen [else telse] endif
 
 ### Case Term
 ```asmeta
-switch t case t₁ : s1 ... case tₙ : sn [ otherwise sn+1 ] endswitch
+switch t case t₁ : s1 ... case tₙ : sₙ [ otherwise sₙ₊₁ ] endswitch
 ```
 * *t,t₁,...,tₙ* are terms of the same  nature.   
-* *s₁,...,sₙ,sn+1* are terms of the same  nature. If *sn+1* is omitted, it is assumed "**otherwise  undef**" as the default.
+* *s₁,...,sₙ,sₙ₊₁ * are terms of the same  nature. If *sₙ₊₁ * is omitted, it is assumed "**otherwise  undef**" as the default.
 
 ### Let Term
 ```asmeta
