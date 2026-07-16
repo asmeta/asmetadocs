@@ -15,7 +15,7 @@ l:=t
 ```
 The *update* rule assigns a new value to a function, modifying the system state.
 * *t* is a generic term;
-* *l* can be either a location term *f(t1,...,tn)* or a location variable (like `$x`).      
+* *l* can be either a location term *f(t₁,...,tₙ)* or a location variable (like `$x`).      
 
 **Example**
 ```asmeta
@@ -38,10 +38,10 @@ The value of *counter* function is incremented by 1 at each step.
 ### Block Rule
 ```asmeta
 par
-  R1 R2 ... Rn
+  R₁ ... Rₙ
 endpar
 ```
-* *R1,R2,...,Rn* are transition rules executed simultaneously (in parallel). 
+* *R₁,...,Rₙ* are transition rules executed simultaneously (in parallel). 
 
 **Example**
 
