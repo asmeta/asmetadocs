@@ -51,78 +51,148 @@ A specialized function term where *f* is a dynamic  function fixed by the ASM si
 ## Extended Terms
 
 ### Tuple Term
-**(** t₁,...tₙ **)**  
+```asmeta
+( t₁,...tₙ )
+``` 
 * *t₁,...tₙ* are terms, that can have a distinct nature. The empty tuple is not allowed. 
 
 ### Sequence Term
-**[** t₁,...tₙ **]**  
+```asmeta
+[ t₁,...tₙ ]
+```
 * *t₁,...tₙ* are terms of the same nature.
 * **[ ]** denotes  the empty sequence.  A  finite sequence over numbers (real, integer and natural)  can be also defined by means of an **interval notation**, as in   **[** tlow  : tupp [ ,s ] **]**
-  * tlow and tuppare numbers representing, respectively,  the lower and the upper elements of the sequence.      
-  * *s* is a positive number representing the step used to take the elements.  If *s* is omitted it is assumed "**s=1**" by default.
+* tlow and tuppare numbers representing, respectively,  the lower and the upper elements of the sequence.      
+* *s* is a positive number representing the step used to take the elements.  If *s* is omitted it is assumed "**s=1**" by default.
 
 ### SequenceCT
-**[**v₁ **in** S₁,...,Sₙ **in** Sₙ [**\|**Gv₁,...,vₙ ] : tv₁,...,vₙ**]**  
+```asmeta
+[v₁ in S₁,...,Sₙ in Sₙ [|Gv₁,...,vₙ ] : tv₁,...,vₙ]
+```
 * *v₁,...,vₙ* are variables.     
 * *tv₁,...,vₙ* is the main term containing free  occurrences of *v₁,...,vₙ*.
 * *S₁,...,Sₙ* are terms representing the  sequences where the variables *v₁,...,vₙ* take their value.
-* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of *v₁,...,vₙ*. If  *Gv₁,...,vₙ* is omitted it is assumed "**true**"  as default condition.
+* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of *v₁,...,vₙ*. If  *Gv₁,...,vₙ* is omitted, it is assumed "**true**"  as the default condition.
 
 ### Set Term
-**{** t₁,...tₙ **}**  
+```asmeta
+{ t₁,...tₙ }
+```
 * *t₁,...tₙ* are terms of the same nature.
 * **{ }**  denotes the empty set.  A  finite set over numbers (real, integer and natural)  can be also defined by means of an **interval notation**, as in   **[** tₘᵢₙ  : tₘₐₓ [ ,s ] **]**  
- * *tₘᵢₙ* and tₘₐₓ are real number representing,  respectively, the lower and the upper elements of the set  
- * *s* is a positive number representing the step used to take the elements.  If s is omitted it is assumed "**s=1**" by default. 
+* *tₘᵢₙ* and tₘₐₓ are real number representing,  respectively, the lower and the upper elements of the set  
+* *s* is a positive number representing the step used to take the elements.  If s is omitted it is assumed "**s=1**" by default. 
 
 ### Set Comprehension Term
-**{**v₁ **in** D₁,...,Dₙ **in** Dₙ   [**\|**Gv₁,...,vₙ ] : tv₁,...,vₙ**}**  
+```asmeta
+{v₁ in D₁,...,vₙ in Dₙ   [|Gv₁,...,vₙ ] : tv₁,...,vₙ}
+```
 * *v₁,...,vₙ* are variables.     
-* *v₁,...,vₙ* is the main term containing free  occurrences of *v₁,...,vₙ*.
+* *tv₁,...,vₙ* is the main term containing free  occurrences of *v₁,...,vₙ*.
 * *D₁,...,Dₙ* are terms representing the domains where the variables *v₁,...,vₙ* take their value.      
-* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of *v₁,...,vₙ*. If  *Gv₁,...,vₙ* is omitted it is assumed "**true**"  as default condition.
+* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of *v₁,...,vₙ*. If  *Gv₁,...,vₙ* is omitted, it is assumed "**true**"  as the default condition.
 
 ### Bag Term
-*<** t₁,...tₙ **>**  where t₁,...tₙ are terms of the same nature.   **< >** denotes the empty bag.     The notation for a bag of bags needs at least one space before to list the  bag elements as in **<****<****...** **>,****...****,<****...****>>**.  A  finite bag over numbers (real, integer and natural)  can be also defined by means of an **interval notation**, as in   **[** tlow  : tupp [ ,s ] **]**  where:     - tlow and tupp are real number representing,  respectively, the lower and the upper elements of the bag.      - s is a positivel number representing the step used to take the elements.  If s is omitted it is assumed "**s=1**" by default.
+```asmeta
+< t₁,...tₙ >
+```
+* *t₁,...,tₙ* are terms of the same nature.
+* **< >** denotes the empty bag.
+The notation for a bag of bags needs at least one space before to list the  bag elements as in **<****<****...** **>,****...****,<****...****>>**.
+A  finite bag over numbers (real, integer and natural)  can also be defined by means of an **interval notation**:
+```asmeta
+[ tlow  : tupp [ ,s ] ]
+```
+* *tlow* and *tupp* are real numbers representing,  respectively, the lower and the upper elements of the bag.      
+* *s* is a positive number representing the step used to take the elements. If *s* is omitted, it is assumed "**s=1**" by default.
 
 ### BagCT
-**<** **in** B1,...,vn **in** Bn   [**\|**Gv1,...,vn ] : tv1,...,vn **>**  where:  -  v1,...,vn are variables.  - tv1,...,vn is a term containing free  occurrences of v1,...,vn.      - B1,...,Bn are terms representing the bags  where the variables v1,...,vn take their value.   - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**true**"  as default condition.
+```asmeta
+< v₁ in B₁,...,vₙ in Bₙ   [|Gv₁,...,vₙ ] : tv₁,...,vₙ >
+```
+* *v₁,...,vₙ* are variables.  
+* *tv₁,...,vₙ* is a term containing free occurrences of *v₁,...vₙ*.     
+* *B₁,...,Bₙ* are terms representing the bags where the variables *v₁,...vₙ* take their value.   
+* *Gv₁,...,vₙ * is a term representing a boolean condition containing occurrences of *v₁,...vₙ*. If *Gv₁,...,vₙ* is omitted, it is assumed "**true**"  as the default condition.
 
 ### Map Term
-**{**t₁ **->** s1,...,tₙ **->** sn **}**  where:  -  t₁,...tₙ are terms of the same nature.  -  s1,...,sn are terms of the same nature.  **{** **->}** denotes the empty map.
+```asmeta
+{t₁ -> s₁,...,tₙ -> sₙ }
+```
+* *t₁,...,tₙ* are terms of the same nature. 
+* *s₁,...,sₙ* are terms of the same nature.
+* **{** **->}** denotes the empty map.
 
 ### MapCT
-**{**v1 in D1,...,vn in Dn  [\|Gv1,...,vn ] : tv1,...,vn -> sv1,...,vn **}**  where:  -  v1,...,vn are variables.  -  tv1,...,vn  sv1,...,vnare terms containing  free occurrences of v1,...,vn.  - D1,...,Dn are terms representing the domains where the  variables v1,...,vn take their value.   - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**true**"  as default condition.
+```asmeta
+{v₁ in D₁,...,vₙ in Dₙ   [|Gv₁,...,vₙ ] : tv₁,...,vₙ -> sv₁,...,svₙ **}
+```
+* *v₁,...,vₙ* are variables.  
+* *tv₁,...,vₙ* and *sv₁,...,vₙ* are terms containing  free occurrences of *v₁,...vₙ*.
+* *D₁,...,Dₙ* are terms representing the domains where the  variables *v₁,...vₙ* take their value.   
+* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of *v₁,...vₙ*. If  *Gv₁,...,vₙ* is omitted, it is assumed "**true**"  as the default condition.
 
 ### Conditional Term
-**if**G **then** tthen [**else** telse ] **endif**  where:  - G is a term representing a boolean condition.  - tthen and telse are terms of the same  nature. If  telse is omitted it is assumed "**else undef**" as default.
+```asmeta
+if G then tthen [else telse] endif
+```
+* *G* is a term representing a boolean condition.  
+* *tthen* and *telse* are terms of the same  nature. If  *telse* is omitted, it is assumed "**else undef**" as the default.
 
 ### Case Term
-**switch** t **case** t₁ **:** s1 ... **case** tₙ **:** sn [ **otherwise** sn+1 ] **endswitch**  where:       - t,t₁,...tₙ are terms of the same  nature.   - s1,...,sn,sn+1 are terms of the same  nature. If sn+1 is omitted it is assumed "**otherwise  undef**" as default.
+```asmeta
+switch t case t₁ : s1 ... case tₙ : sn [ otherwise sn+1 ] endswitch
+```
+* *t,t₁,...,tₙ* are terms of the same  nature.   
+* *s₁,...,sₙ,sn+1* are terms of the same  nature. If *sn+1* is omitted, it is assumed "**otherwise  undef**" as the default.
 
 ### Let Term
-**let (** v**1=**t₁,  ..., v**n****=**tₙ **)** **in** tv1,...,vn **endlet**  where:  - v1,...,vn are variables.  - t₁,...tₙ are terms.   - tv1,...,vn is a term containing free  occurrences of v1,...,vn.
+```asmeta
+let ( v₁=t₁,  ..., vₙ=tₙ ) in tv₁,...,vₙ endlet
+```
+* *v₁,...,vₙ* are variables. 
+* *t₁,...tₙ* are terms.  
+* *tv₁,...,vₙ* is a term containing free  occurrences of *v₁,...,vₙ*.
 
 ### Exists Term
-**( exists** v₁ **in** D₁,...,vₙ **in** Dₙ [**with** Gv₁,...,vₙ ]**)**  where: 
-* v₁,...,vₙ are *logical* variables.
-* D₁,...,Dₙ are terms representing the domains where v₁,...,vₙ take their value.
-* Gv₁,...,vₙ is a term representing a boolean condition containing occurrences of v₁,...,vₙ. If  Gv₁,...,vₙ is omitted it is assumed "**with  true**" as default condition.
+```asmeta
+( exists v₁ in D₁,...,vₙ in Dₙ [with Gv₁,...,vₙ ])
+```
+* *v₁,...,vₙ* are *logical* variables.
+* *D₁,...,Dₙ* are terms representing the domains where v₁,...,vₙ take their value.
+* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of v₁,...,vₙ. If  Gv₁,...,vₙ is omitted, it is assumed "**with  true**" as the default condition.
 ```asmeta
 if (exists $p1 in Process with status($p1) = RUNNABLE) then phase := EVALUATION endif
 ```
 
 ### Exists Unique Term
-**( exists unique** v**1** **in** D1,...,vn **in** Dn[ **with** Gv1,...,vn ]**)**  where:  - v1,...,vn are variables.  - D1,...,Dn are terms representing the domains where v1,...,vn take their value.     - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**with  true**" as default condition.
+```asmeta
+( exists unique v₁ in D₁,...,vₙ in Dₙ [with Gv₁,...,vₙ ])
+```
+* *v₁,...,vₙ* are variables. 
+* *D₁,...,Dₙ* are terms representing the domains where v₁,...,vₙ take their value.
+* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of v₁,...,vₙ. If  Gv₁,...,vₙ is omitted, it is assumed "**with  true**" as the default condition.
 
 ### Forall Term 
-**( forall** v**1** **in** D1,...,vn **in** Dn[ **with** Gv1,...,vn ]**)**  where:  - v1,...,vn are variables.  - D1,...,Dn are terms representing the domains where v1,...,vn take their value.     - Gv1,...,vn is a term representing a boolean condition containing occurrences of v1,...,vn. If  Gv1,...,vn is omitted it is assumed "**with  true**" as default condition.
+```asmeta
+( forall v₁ in D₁,...,vₙ in Dₙ [with Gv₁,...,vₙ ])
+```
+* *v₁,...,vₙ* are variables. 
+* *D₁,...,Dₙ* are terms representing the domains where v₁,...,vₙ take their value.
+* *Gv₁,...,vₙ* is a term representing a boolean condition containing occurrences of v₁,...,vₙ. If  Gv₁,...,vₙ is omitted, it is assumed "**with  true**" as the default condition.
 
+  
 ### Domain Term
-D  where D is the name of a domain declared  in the ASM signature or directly the expression for a structured type-domain.
+**D**
+* *D* is the name of a domain declared  in the ASM signature or directly the expression for a structured type-domain.
 
 ### Rule As Term
-**<<** R[ **(** D1,...,Dn  **)** ] **>>**  where R is the name of a defined transition  rule, and D1,...,Dn (if any) are the domains of the formal rule  parameters*.  It is a special term used to denote a transition rule where a term is  expected (e.g as actual parameter in a rule  application to represent a transition rule). Itsinterpretation results,  therefore, in a transition rule.  *Similarly to functions, rules can  be overloaded. When rules are overloaded, it is necessary to indicate  the domains of the formal rule parameters.
+```asmeta
+<< R[ ( D₁,...,Dₙ  ) ] >>
+```
+* *R* is the name of a defined transition  rule, and *D₁,...,Dₙ* (if any) are the domains of the formal rule  parameters.
+It is a special term used to denote a transition rule where a term is  expected (e.g as actual parameter in a rule  application to represent a transition rule). Its interpretation results,  therefore, in a transition rule.  
+Similarly to functions, rules can  be overloaded. When rules are overloaded, it is necessary to indicate  the domains of the formal rule parameters.
 
 
 
